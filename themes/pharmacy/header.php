@@ -34,8 +34,8 @@
             <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
         </hgroup>
 
-        <nav id="site-navigation" class="main-navigation clearfix centered" role="navigation">
-            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu centered clearfix' ) ); ?>
+        <nav id="site-navigation" class="main-navigation clearfix" role="navigation">
+            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu clearfix' ) ); ?>
         </nav><!-- #site-navigation -->
 
         <?php $header_image = get_header_image();
@@ -47,6 +47,7 @@
     <?php if(is_front_page()) : ?>
         <div id="sliderWrapper" class="fullWidth">
             <div id="slider" class="centered">
+                <img src="<?php  ?>" alt="">
                 <p>Welcome to impact pharmacy online</p>
             </div>
         </div>

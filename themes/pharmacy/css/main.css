@@ -116,7 +116,6 @@ h1, h2, h3, h4 {
 
 #main {
     background: #fff;
-    padding:30px 48px;
 }
 
 #sliderWrapper {
@@ -131,7 +130,7 @@ h1, h2, h3, h4 {
 }
 
 .centered {
-    width:1084px;
+    width:960px;
     margin:0 auto;
 }
 
@@ -186,6 +185,7 @@ h1, h2, h3, h4 {
 .site-content {
     margin: 24px 0 0;
     margin: 1.714285714rem 0 0;
+    padding:36px;
 }
 .widget-area {
     margin: 24px 0 0;
@@ -233,7 +233,7 @@ h1, h2, h3, h4 {
 /* Navigation Menu */
 .main-navigation {
     text-align: center;
-    padding:12px 30px;
+    padding:3px 36px;
     background: #fff;
     height:48px;
     border-top:3px #bfd506 solid;
@@ -283,6 +283,10 @@ h1, h2, h3, h4 {
 
 #main-content {
 
+}
+
+#main #container {
+    padding:36px;
 }
 
 

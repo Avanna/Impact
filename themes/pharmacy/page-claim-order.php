@@ -22,9 +22,9 @@
 
 				<p>Please enter the reference # to pay for an order</p>
 
-				<form action="<?php echo get_admin_url().'admin-post.php' ?>" method="post">
+				<form action="<?php echo site_url().'/accept-order' ?>" method="post">
 					<input type="text" name="ref_number" id="ref_number" />
-					<input type='hidden' name='action' value='submit-form' />
+					<!-- <input type='hidden' name='action' value='submit-form' /> -->
 					
 					<?php wp_nonce_field('new-ref-number'); ?>
 					
@@ -40,7 +40,19 @@
 
 	            ?>
 			<?php else : ?>
-				<h2>Please sign up with the email we send the order to</h2>
+				<h3 class="centered">Please login to continue or <a href="<?php echo site_url('/wp-login.php?action=register&redirect_to=' . get_permalink()); ?>" title="">create an account</a> </h3> 
+				<?php 
+					$args = array(
+		        				//'redirect' => site_url().'/clients', 
+						        'form_id' => 'loginform-page',
+						        'label_username' => __( 'Username' ),
+						        'label_password' => __( 'Password' ),
+						        'label_log_in' => __( 'Log In' ),
+						        'remember' => false
+						    );
+
+		    		wp_login_form( $args );
+	    		?>
 			<?php endif; ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->

@@ -13,13 +13,13 @@ get_header(); ?>
 			<p>You can now buy prescription medications for friends and family in Zimbabwe online.
 				Prescriptions Online™ is easy, safe, and convenient.
 			</p>
-			<a href="#">Pay for Prescriptions</a>
+			<a href="<?php echo site_url().'/prescriptions' ?>">Pay for Prescriptions</a>
 		</div>
 		<div class="patientService">
 			<h2>hospital bills</h2>
 			<p>Hospital Bill Pay™ is quicker, easier and cheaper than wiring or transferring money to friends and family in Zimbabwe to cover medical expenses. You can Pay any hospital, clinic, or doctor in Zimbabwe from anywhere in the world, anytime.
 			</p>
-			<a href="#">pay a hospital bill</a>
+			<a href="<?php echo site_url().'/hospital-bills' ?>">pay a hospital bill</a>
 		</div>
 	</div>
 

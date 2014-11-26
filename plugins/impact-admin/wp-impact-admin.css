@@ -1,8 +1,5 @@
 .adminRefNumberDisplay {
-	padding:12px 24px;
-	background-color:#f5f2f2;
-	border-left:5px #7ad03a solid;
-	margin-bottom:18px;
+
 }
 
 #order_data .adminRefNumberDisplay input {
@@ -11,8 +8,9 @@
 	color:#7ad03a;
 }
 
-#order_data .orderTypeWrapper {
-	padding:12px 24px;
+.leftBorder {
 	background-color:#f5f2f2;
 	border-left:5px #7ad03a solid;
+	padding:12px 24px;
+	margin-bottom:18px;
 }

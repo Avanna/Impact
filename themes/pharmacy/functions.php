@@ -529,7 +529,7 @@ function ref_number_field_display_admin_order_meta($order){
 
     $ref_number = get_post_meta( $order->id, 'ref_number', true );
   
-  	echo '<div class="options_group adminRefNumberDisplay">';
+  	echo '<div class="options_group adminRefNumberDisplay leftBorder">';
 
 	  	if(isset($ref_number) && $ref_number !== "") {
 	  		$new_ref_number = $ref_number;
@@ -552,7 +552,22 @@ function ref_number_field_display_admin_order_meta($order){
   
   	echo '</div>';
 
-  	echo '<div class="orderTypeWrapper">';
+  	echo '<div class="options_group adminOrderRequesterDisplay leftBorder">';
+	  
+	  	// Custom fields will be created here...
+	  	// Text Field
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'order_requester', 
+				'label'       => __( '<h2>Name of person requesting order<h2>', 'woocommerce' ), 
+				'desc_tip'    => 'true',
+				'description' => __( 'Please enter a name for the person requesting the order', 'woocommerce' ) 
+			)
+		);
+  
+  	echo '</div>';
+
+  	echo '<div class="orderTypeWrapper leftBorder">';
 		woocommerce_wp_select( 
 			array( 
 				'id'      => 'order_type', 
@@ -570,9 +585,9 @@ function ref_number_field_display_admin_order_meta($order){
 /**
  * Update the order meta with field value
  */
-add_action( 'woocommerce_process_shop_order_meta', 'ref_number_checkout_field_update_order_meta' );
+add_action( 'woocommerce_process_shop_order_meta', 'order_extras_checkout_field_update_order_meta' );
  
-function ref_number_checkout_field_update_order_meta( $order_id ) {
+function order_extras_checkout_field_update_order_meta( $order_id ) {
     if ( ! empty( $_POST['ref_number'] ) ) {
         update_post_meta( $order_id, 'ref_number', sanitize_text_field( $_POST['ref_number'] ) );
     }
@@ -580,6 +595,10 @@ function ref_number_checkout_field_update_order_meta( $order_id ) {
     $order_type = $_POST['order_type'];
 	if( !empty( $order_type ) )
 		update_post_meta( $order_id, 'order_type', esc_attr( $order_type ) );
+
+	$order_requester = $_POST['order_requester'];
+	if( !empty( $order_requester ) )
+		update_post_meta( $order_id, 'order_requester', esc_attr( $order_requester ) );
 		
 }
 
@@ -589,37 +608,31 @@ add_action('admin_post_submit-form', '_handle_form_action'); // If the user is l
 add_action('admin_post_nopriv_submit-form', '_handle_form_action'); // If the user in not logged in
 function _handle_form_action(){
 
+	$ref_number = $_POST['ref_number'];
+
 	$args = array(
 	  	'post_type' => 'shop_order',
 	  	'post_status' => array_keys( wc_get_order_statuses() ),
 	  	'meta_query' => array(
             array(
                 'key' => 'ref_number',
-                'value' => 'Nh0VL4VGOe'
+                'value' => $ref_number
             )
         )
 	);
 
 	$my_query = new WP_Query($args);
 
-	echo '<pre>';
-		var_dump($my_query->posts[0]);
-	echo '</pre>';
+	if($my_query->have_posts()) {
+		$order_id = $my_query->posts[0]->ID;
+		$user_id = get_current_user_id();
 
-	$order_id = $my_query->posts[0]->ID;
+		update_post_meta( $order_id, '_customer_user', $user_id );
 
-	$user_id = get_current_user_id();
-
-	echo 'before'.get_post_meta( $order_id, '_customer_user', true );
-
-	echo update_post_meta( $order_id, '_customer_user', $user_id );
-
-	echo 'after'.get_post_meta( $order_id, '_customer_user', true );
-
-
-
-    //wp_redirect(site_url().'/about-us/');
-
+		wp_redirect(site_url().'/my-account/');
+	} else {
+		echo 'Sorry no orders match that reference number. Please try again';
+	}
 }
 
 
