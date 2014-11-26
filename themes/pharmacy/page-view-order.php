@@ -1,6 +1,6 @@
 <?php
 /**
- *  Template Name: Claim An Order
+ *  Template Name: View An Order
  */
 ?>
 
@@ -20,7 +20,7 @@
 			<?php if(is_user_logged_in()) : ?>
 				<h2>You are logged in</h2>
 
-				<p>Please enter the reference # to pay for an order</p>
+				<p>Here is the order for your reference #. You can pay for the order below</p>
 
 				<form action="<?php echo get_admin_url().'admin-post.php' ?>" method="post">
 					<input type="text" name="ref_number" id="ref_number" />
@@ -30,15 +30,6 @@
 					
 					<input type="submit" value="submit">
 				</form>
-				<?php 
-					global $woocommerce;
-					global $current_user;
-	      			get_currentuserinfo();
-
-	      			echo do_shortcode('[featured_products per_page="12" columns="4"]');
-	      			echo do_shortcode('[woocommerce_view_order]');
-
-	            ?>
 			<?php else : ?>
 				<h2>Please sign up with the email we send the order to</h2>
 			<?php endif; ?>

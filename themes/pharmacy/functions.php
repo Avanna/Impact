@@ -583,6 +583,45 @@ function ref_number_checkout_field_update_order_meta( $order_id ) {
 		
 }
 
+// Handle reference number submission
+
+add_action('admin_post_submit-form', '_handle_form_action'); // If the user is logged in
+add_action('admin_post_nopriv_submit-form', '_handle_form_action'); // If the user in not logged in
+function _handle_form_action(){
+
+	$args = array(
+	  	'post_type' => 'shop_order',
+	  	'post_status' => array_keys( wc_get_order_statuses() ),
+	  	'meta_query' => array(
+            array(
+                'key' => 'ref_number',
+                'value' => 'Nh0VL4VGOe'
+            )
+        )
+	);
+
+	$my_query = new WP_Query($args);
+
+	echo '<pre>';
+		var_dump($my_query->posts[0]);
+	echo '</pre>';
+
+	$order_id = $my_query->posts[0]->ID;
+
+	$user_id = get_current_user_id();
+
+	echo 'before'.get_post_meta( $order_id, '_customer_user', true );
+
+	echo update_post_meta( $order_id, '_customer_user', $user_id );
+
+	echo 'after'.get_post_meta( $order_id, '_customer_user', true );
+
+
+
+    //wp_redirect(site_url().'/about-us/');
+
+}
+
 
 // // Display Fields
 // add_action( 'woocommerce_product_options_general_product_data', 'woo_add_custom_general_fields' );
