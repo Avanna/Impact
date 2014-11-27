@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * Include impact specific functions here
+ */
+
+include 'impact-functions.php';
+
+
 /**
  * Twenty Twelve functions and definitions.
  *

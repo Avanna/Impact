@@ -43,7 +43,7 @@
 
 							echo "<p>this order was requested by ".get_post_meta($order_id, 'order_requester', true);
 
-							print_r($my_query);
+							// print_r($my_query);
 						}
 
 					} else {
