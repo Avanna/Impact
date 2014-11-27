@@ -26,7 +26,7 @@
 
 <div id="page" class="hfeed site">
     <div id="top-navigation">
-        <?php wp_nav_menu( array( 'theme_location' => 'top_nav', 'menu_class' => 'nav-menu centered clearfix' ) ); ?>
+        <?php wp_nav_menu( array( 'theme_location' => 'top_nav', 'menu_class' => 'nav-menu clearfix' ) ); ?>
     </div>
     <header id="masthead" class="site-header centered" role="banner">
         <hgroup>
@@ -53,4 +53,4 @@
         </div>
     <?php endif; ?>
 
-    <div id="main" class="wrapper centered clearfix">
+    <div id="main" class="wrapper clearfix">

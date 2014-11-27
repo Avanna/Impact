@@ -105,13 +105,20 @@ ul {
 body {
     font-size:14px;
     font-family:helvetica, Arial, sans-serif;
-    background: #f8f8f8;
+    background: #d4d9cc;
 }
 
 h1, h2, h3, h4 {
     font-family: "myriad-pro";
     text-transform: capitalize;
     font-weight:400;
+}
+
+#page {
+    width:1064px;
+    /*padding:0px 48px;*/
+    margin:0 auto;
+    background:#fff;
 }
 
 #main {
@@ -125,8 +132,8 @@ h1, h2, h3, h4 {
 
 #slider {
     height:480px;
-    background:#ddd;
-    margin-bottom:30px;
+   /* background:#ddd;*/
+   /* margin-bottom:30px;*/
 }
 
 .centered {
@@ -161,14 +168,15 @@ h1, h2, h3, h4 {
 
 
 #top-navigation {
-    height:60px;
+    height:48px;
+    padding:0 36px;
     background: #333;
 }
 
 #top-navigation ul li {
     font-size:13px;
     display:inline-block;
-    line-height: 60px;
+    line-height: 48px;
     margin-right:18px;
 }
 
@@ -233,9 +241,9 @@ h1, h2, h3, h4 {
 .main-navigation {
     text-align: center;
     padding:3px 36px;
-    background: #fff;
+    background: #91B25F;
     height:48px;
-    border-top:3px #bfd506 solid;
+    /*border-top:3px #bfd506 solid;*/
 }
 .main-navigation li {
     float:left;
@@ -247,7 +255,7 @@ h1, h2, h3, h4 {
 .main-navigation a {
     font-weight: bold;
     display: inline-block;
-    color: #555;
+    color: #fff;
     line-height: 1;
     text-decoration: none;
     text-transform: capitalize;
@@ -265,6 +273,11 @@ h1, h2, h3, h4 {
     display: inline-block;
 }
 
+#frontPageRefNum {
+    padding:48px;
+    background-color: #C9D870;
+}
+
 .patientService {
     padding:12px 48px 30px 48px;
     border-bottom:1px #ddd solid;
@@ -276,6 +289,20 @@ h1, h2, h3, h4 {
 
 #mainPageShop {
     padding:30px 48px;
+    background: #f7f7f7
+}
+
+#mainPageShop ul.products li {
+    background:#fff;
+    width:25%;
+    padding:20px;
+    border: 1px #eee solid;
+}
+
+#mainPageShop a.button {
+    background:#fff;
+    border:1px #ddd solid;
+    box-shadow: none;
 }
 
 /* ==!== Page styles ======================================================== */
@@ -299,7 +326,13 @@ h1, h2, h3, h4 {
     padding:36px;
 }
 
-
+.main-footer {
+    padding:48px;
+    background:#f8f8f8;
+    border-top: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+    margin-bottom: 60px;
+}
 
 
 

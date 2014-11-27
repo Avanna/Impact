@@ -1,4 +1,3 @@
-</div><!-- contentWrapper -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
@@ -16,13 +15,15 @@
 </script>
 
 </div><!-- #main .wrapper -->
-    <footer id="colophon" role="contentinfo">
+    <footer id="colophon" role="contentinfo" class="main-footer">
         <div class="site-info">
             <?php do_action( 'twentytwelve_credits' ); ?>
             <a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentytwelve' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?></a>
         </div><!-- .site-info -->
     </footer><!-- #colophon -->
 </div><!-- #page -->
+
+</div><!-- contentWrapper -->
 
 <?php wp_footer(); ?>
 </body>

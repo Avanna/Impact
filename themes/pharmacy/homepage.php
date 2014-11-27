@@ -7,6 +7,11 @@
 get_header(); ?>
 	
 <div id="mainPageContent">
+	
+	<div id="frontPageRefNum">
+		<h3>do you have a reference number? Please click here to pay for an order</h3>
+	</div> 
+
 	<div id="patientServices">
 		<div class="patientService">
 			<h2>prescriptions online</h2>
@@ -30,6 +35,5 @@ get_header(); ?>
 	</div><!-- mainPageShop -->
 	
 </div><!-- mainPageContent -->
-
 
 <?php get_footer(); ?>
