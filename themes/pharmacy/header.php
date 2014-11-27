@@ -53,4 +53,4 @@
         </div>
     <?php endif; ?>
 
-    <div id="main" class="wrapper centered">
+    <div id="main" class="wrapper centered clearfix">

@@ -183,9 +183,8 @@ h1, h2, h3, h4 {
     padding: 0 1.714285714rem;*/
 }
 .site-content {
-    margin: 24px 0 0;
-    margin: 1.714285714rem 0 0;
-    padding:36px;
+   /* margin: 24px 0 0;
+    margin: 1.714285714rem 0 0;*/
 }
 .widget-area {
     margin: 24px 0 0;
@@ -282,7 +281,18 @@ h1, h2, h3, h4 {
 /* ==!== Page styles ======================================================== */
 
 #main-content {
+    padding:42px;
+}
 
+#primary {
+    float:left;
+    width:600px;
+}
+
+#secondary {
+    float:left;
+    width:240px;
+    background-color:#ddd;
 }
 
 #main #container {
