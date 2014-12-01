@@ -28,7 +28,7 @@
 					
 					<?php wp_nonce_field('new-ref-number'); ?>
 					
-					<input type="submit" value="submit">
+					<input type="submit" value="submit" class="bigSubmitButton">
 				</form>
 			<?php else : ?>
 				<h3 class="centered">Please login to continue or <a href="<?php echo site_url('/wp-login.php?action=register&redirect_to=' . get_permalink()); ?>" title="">create an account</a> </h3> 

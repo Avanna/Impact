@@ -49,7 +49,8 @@
             <div id="sliderWrapper" class="fullWidth">
                 <div id="slider" class="centered">
                     <img src="<?php  ?>" alt="">
-                    <p>Welcome to impact pharmacy online</p>
+                    <h2>Welcome to impact pharmacy online</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque sint non quod harum commodi quo excepturi rem assumenda? Soluta aliquid in quis perferendis obcaecati ex expedita, neque aspernatur id quidem.</p>
                 </div>
             </div>
         <?php endif; ?>

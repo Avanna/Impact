@@ -97,6 +97,10 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+a, a:visited {
+    color:#6da11d;
+}
+
 .impactNotice {
     padding:12px 18px;
     border:1px #8CCA5E solid;
@@ -118,7 +122,7 @@ h1, h2, h3, h4 {
     font-family: 'Oswald', helvetica, Arial, sans-serif; 
     text-transform: capitalize;
     font-weight:400;
-    color:#555;
+    color:#444;
 }
 
 h2 {
@@ -137,12 +141,23 @@ h2 {
 }
 
 #sliderWrapper {
-    border-top: 3px #969f2a solid;
+    /*border-top: 3px #969f2a solid;*/
 }
 
 #slider {
-    height:480px;
+    height:340px;
    /* margin-bottom:30px;*/
+}
+
+#slider h2 {
+    font-size:24px;
+    color:#fff;
+}
+
+#slider p {
+    width:60%;
+    font-size:18px;
+    color:#fff;
 }
 
 .centered {
@@ -178,7 +193,7 @@ h2 {
 
 #top-navigation {
     height:48px;
-    padding:0 36px;
+    padding:0 48px;
     background: #333;
 }
 
@@ -210,7 +225,7 @@ h2 {
 
 /* Header */
 .site-header {
-    padding: 24px 0 3px;
+    padding: 24px 48px 36px;
     background:url(../img/slide_bg.jpg) no-repeat;
 }
 
@@ -250,18 +265,24 @@ h2 {
 /* Navigation Menu */
 .main-navigation {
     text-align: center;
-    padding:3px 36px;
-    background: #91B25F;
-    height:48px;
+    /*padding:3px 36px;*/
+    background: #6da11d;
+    height:54px;
     /*border-top:3px #bfd506 solid;*/
 }
 .main-navigation li {
     float:left;
-    margin-right:48px;
+    /*margin-right:48px;*/
+    padding:0 24px;
     font-size: 12px;
     font-size: 0.857142857rem;
-    line-height: 48px;
+    line-height: 54px;
 }
+
+.main-navigation li.current-menu-item {
+    background: #5d900f;
+}
+
 .main-navigation a {
     font-weight: bold;
     display: inline-block;
@@ -284,8 +305,13 @@ h2 {
 }
 
 #frontPageRefNum {
-    padding:48px;
-    background-color: #C9D870;
+    padding:24px 48px;
+    background-color: #88af4b;
+    color:#fff;
+}
+
+#frontPageRefNum h3 {
+    color:#fff;
 }
 
 .patientService {
@@ -309,10 +335,38 @@ h2 {
     border: 1px #eee solid;
 }
 
-#mainPageShop a.button {
-    background:#fff;
-    border:1px #ddd solid;
+#mainPageShop a.button, 
+.woocommerce form.cart button.single_add_to_cart_button.button,
+.woocommerce #container a.button,
+.woocommerce #content .cart .checkout-button.button,
+.bigSubmitButton {
+    background:#c86403;
+    border:none;
+    padding:9px 14px;
     box-shadow: none;
+    text-shadow:none;
+    color:#fff;
+}
+
+.star-rating span {
+    color: #c86403 !important;
+}
+
+.bigSubmitButton {
+    padding:12px 18px;
+    font-size:18px;
+    border:3px #ddd solid;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+input#ref_number {
+    width:60%;
+    margin:0 auto;
+    padding:12px 18px;
+    font-size:18px;
+    border:3px #ddd solid;
+    border-radius: 12px;
 }
 
 /* ==!== Page styles ======================================================== */
@@ -324,19 +378,27 @@ h2 {
 
 #primary {
     float:left;
-    width:60%;
-    padding:3% 4%;
+    width:631px;
+    padding:36px 48px;
 }
 
 #secondary {
     float:left;
-    width:26%;
-    padding:20px 3%;
-    background-color:#ddd;
+    width:240px;
+    padding:36px 48px;
+    background-color:#f8f8f8;
+    border-left: 1px #ddd solid;
 }
 
 #main #container {
-    padding:36px;
+    padding:48px;
+    background:#f8f8f8;
+}
+
+#main #container #content {
+    padding:48px;
+    background: #fff;
+    border:1px #ddd solid;
 }
 
 .main-footer {
@@ -347,6 +409,18 @@ h2 {
     margin-bottom: 60px;
 }
 
+
+table.cart thead {
+    background-color: #6da11d;
+    color:#fff;
+    padding-top:18px;
+    padding-bottom: 18px;
+}
+
+ul.products span.amount {
+    font-size:18px;
+    font-style:italic;
+}
 
 
 

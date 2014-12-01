@@ -60,7 +60,7 @@
 							<form action="<?php echo site_url(); ?>/my-account" method="post">
 								<input type='hidden' name='order-id' value='<?php echo $order_id ?>' />
 								<?php wp_nonce_field('accept-order'); ?>
-								<input type="submit" value="Accept Order">
+								<input type="submit" value="Accept Order" class="bigSubmitButton">
 							</form>
 						<?php endif; ?>
 						<?php
