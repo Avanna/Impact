@@ -30,15 +30,6 @@
 					
 					<input type="submit" value="submit">
 				</form>
-				<?php 
-					global $woocommerce;
-					global $current_user;
-	      			get_currentuserinfo();
-
-	      			echo do_shortcode('[featured_products per_page="12" columns="4"]');
-	      			echo do_shortcode('[woocommerce_view_order]');
-
-	            ?>
 			<?php else : ?>
 				<h3 class="centered">Please login to continue or <a href="<?php echo site_url('/wp-login.php?action=register&redirect_to=' . get_permalink()); ?>" title="">create an account</a> </h3> 
 				<?php 

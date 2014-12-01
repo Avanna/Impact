@@ -20,15 +20,17 @@
     <script src="//use.typekit.net/eol0cqi.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class('woocommerce'); ?>>
 
 <div id="page" class="hfeed site">
     <div id="top-navigation">
         <?php wp_nav_menu( array( 'theme_location' => 'top_nav', 'menu_class' => 'nav-menu clearfix' ) ); ?>
     </div>
-    <header id="masthead" class="site-header centered" role="banner">
+    <header id="masthead" class="site-header" role="banner">
         <hgroup>
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
@@ -42,15 +44,15 @@
         if ( ! empty( $header_image ) ) : ?>
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo esc_url( $header_image ); ?>" class="header-image" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>" alt="" /></a>
         <?php endif; ?>
-    </header><!-- #masthead -->
 
-    <?php if(is_front_page()) : ?>
-        <div id="sliderWrapper" class="fullWidth">
-            <div id="slider" class="centered">
-                <img src="<?php  ?>" alt="">
-                <p>Welcome to impact pharmacy online</p>
+         <?php if(is_front_page()) : ?>
+            <div id="sliderWrapper" class="fullWidth">
+                <div id="slider" class="centered">
+                    <img src="<?php  ?>" alt="">
+                    <p>Welcome to impact pharmacy online</p>
+                </div>
             </div>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
+    </header><!-- #masthead -->
 
     <div id="main" class="wrapper clearfix">

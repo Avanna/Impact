@@ -97,6 +97,11 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.impactNotice {
+    padding:12px 18px;
+    border:1px #8CCA5E solid;
+}
+
 ul {
     margin:0;
     padding:0;
@@ -105,13 +110,19 @@ ul {
 body {
     font-size:14px;
     font-family:helvetica, Arial, sans-serif;
+    line-height: 1.5;
     background: #d4d9cc;
 }
 
 h1, h2, h3, h4 {
-    font-family: "myriad-pro";
+    font-family: 'Oswald', helvetica, Arial, sans-serif; 
     text-transform: capitalize;
     font-weight:400;
+    color:#555;
+}
+
+h2 {
+    font-size:20px;
 }
 
 #page {
@@ -127,12 +138,10 @@ h1, h2, h3, h4 {
 
 #sliderWrapper {
     border-top: 3px #969f2a solid;
-    background-color: #c4d304; 
 }
 
 #slider {
     height:480px;
-   /* background:#ddd;*/
    /* margin-bottom:30px;*/
 }
 
@@ -202,6 +211,7 @@ h1, h2, h3, h4 {
 /* Header */
 .site-header {
     padding: 24px 0 3px;
+    background:url(../img/slide_bg.jpg) no-repeat;
 }
 
 .site-header h1,
@@ -308,17 +318,20 @@ h1, h2, h3, h4 {
 /* ==!== Page styles ======================================================== */
 
 #main-content {
-    padding:42px;
+   /* padding:42px;*/
+    overflow:hidden;
 }
 
 #primary {
     float:left;
-    width:600px;
+    width:60%;
+    padding:3% 4%;
 }
 
 #secondary {
     float:left;
-    width:240px;
+    width:26%;
+    padding:20px 3%;
     background-color:#ddd;
 }
 

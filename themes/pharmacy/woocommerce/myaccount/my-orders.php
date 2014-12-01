@@ -13,6 +13,22 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
+if(isset($_POST['order-id']) && $_POST['order-id'] !== '') {
+	$order_id = $_POST['order-id'];
+	$user_id = get_current_user_id();
+
+	if(!get_post_meta($order_id, '_customer_user', $user_id)) {
+		$updated = update_post_meta( $order_id, '_customer_user', $user_id );
+		if($updated) {
+			echo '<p class="impactNotice">Thanks for accepting the order. It has been added to your account and you can review and pay the order below.</p>';
+		} else {
+			echo '<p class="impactNotice">Sorry there was a problem adding the order to your account please try again.</p>';
+		}
+	} else {
+		echo '<p class="impactNotice">You have already claimed this order. You can view the details or pay for it below.</p>';
+	}
+}	
+		
 $customer_orders = get_posts( apply_filters( 'woocommerce_my_account_my_orders_query', array(
 	'numberposts' => $order_count,
 	'meta_key'    => '_customer_user',

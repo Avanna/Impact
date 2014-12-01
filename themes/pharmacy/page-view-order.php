@@ -18,7 +18,6 @@
 			?>
 		
 			<?php if(is_user_logged_in()) : ?>
-				<h2>You are logged in</h2>
 				<?php
 					if(isset($_POST['ref_number']) && $_POST['ref_number'] !== '') {
 						$ref_number = $_POST['ref_number'];
@@ -37,17 +36,39 @@
 
 						if($my_query->have_posts()) {
 							$order_id = $my_query->posts[0]->ID;
-							$user_id = get_current_user_id();
 
-							update_post_meta( $order_id, '_customer_user', $user_id );
+							$order = $my_query->posts[0];
 
-							echo "<p>this order was requested by ".get_post_meta($order_id, 'order_requester', true);
+							// echo '<pre>';
+							// print_r($my_query->posts[0]);
+							// echo '</pre>';
 
-							// print_r($my_query);
+							// update_post_meta( $order_id, '_customer_user', $user_id );
+
+							echo "<p>This order was requested by ".get_post_meta($order_id, 'order_requester', true);
+
+							if($order->post_status === 'wc-completed') {
+								echo '<p class="impactNotice">This order has already been completed. Please contact us if you have any questions.</p>';
+							}
+							
+							do_action( 'woocommerce_view_order', $order_id );
+						?>
+
+						<?php if($order->post_status === 'wc-completed') : ?>
+							<p class="impactNotice">This order has already been completed. Please contact us if you have any questions.</p>
+						<?php else : ?>
+							<form action="<?php echo site_url(); ?>/my-account" method="post">
+								<input type='hidden' name='order-id' value='<?php echo $order_id ?>' />
+								<?php wp_nonce_field('accept-order'); ?>
+								<input type="submit" value="Accept Order">
+							</form>
+						<?php endif; ?>
+						<?php
+						} else {
+							echo '<p>Sorry no orders match that reference number. Please double check the reference number and <a href="'.site_url().'/claim-an-order">try again</a></p>';
 						}
-
 					} else {
-						echo 'Sorry no orders match that reference number. Please try again';
+						echo '<p>Please enter a valid reference number</p>';
 					}
 				?>
 			<?php else : ?>
