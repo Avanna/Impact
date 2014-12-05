@@ -101,6 +101,10 @@ a, a:visited {
     color:#6da11d;
 }
 
+a:hover {
+    color:#6da11d;
+}
+
 .impactNotice {
     padding:12px 18px;
     border:1px #8CCA5E solid;
@@ -121,7 +125,7 @@ body {
 h1, h2, h3, h4 {
     font-family: 'Oswald', helvetica, Arial, sans-serif; 
     text-transform: capitalize;
-    font-weight:400;
+    font-weight:normal;
     color:#444;
 }
 
@@ -129,11 +133,31 @@ h2 {
     font-size:20px;
 }
 
+.site-header .site-title {
+    width:300px;
+    height:72px;
+    text-indent: -9999px;
+    background: url(../img/logo_shadow.png) no-repeat -10px 0px;
+    margin-bottom:0;
+}
+
+.site-header h2.site-description {
+    color:#fff;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
 #page {
     width:1064px;
     /*padding:0px 48px;*/
     margin:0 auto;
     background:#fff;
+
+    -moz-box-shadow: 0px 0px 2px 2px #c4c1c4;
+    -webkit-box-shadow: 0px 0px 2px 2px #c4c1c4;
+    box-shadow: 0px 0px 2px 2px #c4c1c4;
+    /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+    /*IE 7 AND 8 DO NOT SUPPORT SPREAD PROPERTY OF SHADOWS*/
 }
 
 #main {
@@ -145,7 +169,7 @@ h2 {
 }
 
 #slider {
-    height:340px;
+    height:250px;
    /* margin-bottom:30px;*/
 }
 
@@ -156,7 +180,7 @@ h2 {
 
 #slider p {
     width:60%;
-    font-size:18px;
+    font-size:16px;
     color:#fff;
 }
 
@@ -192,7 +216,7 @@ h2 {
 
 
 #top-navigation {
-    height:48px;
+    height:42px;
     padding:0 48px;
     background: #333;
 }
@@ -200,7 +224,7 @@ h2 {
 #top-navigation ul li {
     font-size:13px;
     display:inline-block;
-    line-height: 48px;
+    line-height: 42px;
     margin-right:18px;
 }
 
@@ -226,7 +250,7 @@ h2 {
 /* Header */
 .site-header {
     padding: 24px 48px 36px;
-    background:url(../img/slide_bg.jpg) no-repeat;
+    background:#88AF4F url(../img/slider_bg.png) no-repeat 650px -31px;
 }
 
 .site-header h1,
@@ -269,6 +293,58 @@ h2 {
     background: #6da11d;
     height:54px;
     /*border-top:3px #bfd506 solid;*/
+
+    /*  float:right;*/
+    /*border:1px #f8f8f8 solid;
+        border-bottom:1px #ddd solid;*/
+    /*border-bottom: 5px #DDD solid;*/
+    border-bottom: 2px #577405 solid;
+    /*-moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;*/
+    /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8ab407', endColorstr = '#608a02');
+    /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+    /*Element must have a height (not auto)*/
+    /*All filters must be placed together*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8ab407', endColorstr = '#608a02')";
+    /*Element must have a height (not auto)*/
+    /*All filters must be placed together*/
+    background-image: -moz-linear-gradient(top, #8ab407, #608a02);
+    background-image: -ms-linear-gradient(top, #8ab407, #608a02);
+    background-image: -o-linear-gradient(top, #8ab407, #608a02);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#8ab407), to(#608a02));
+    background-image: -webkit-linear-gradient(top, #8ab407, #608a02);
+    background-image: linear-gradient(top, #8ab407, #608a02);
+    /*--IE9 DOES NOT SUPPORT CSS3 GRADIENT BACKGROUNDS--*/
+
+
+    -moz-box-shadow: 0px 1px 1px #333;
+    -webkit-box-shadow: 0px 1px 1px #333;
+    box-shadow: 0px 1px 1px #333;
+    filter: progid:DXImageTransform.Microsoft.Shadow(strength = 2, direction = 180, color = '#333');
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(strength = 2, Direction = 180, Color = '#333')";
+    /*Shadows look very different in IE (Only cardinal directions supported)*/
+    /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+    /*Element should have a background-color*/
+    /*All filters must be placed together*/
+    /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8ab407', endColorstr = '#608a02');
+    /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
+    /*Element must have a height (not auto)*/
+    /*All filters must be placed together*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8ab407', endColorstr = '#608a02')";
+    /*Element must have a height (not auto)*/
+    /*All filters must be placed together*/
+    background-image: -moz-linear-gradient(top, #8ab407, #608a02);
+    background-image: -ms-linear-gradient(top, #8ab407, #608a02);
+    background-image: -o-linear-gradient(top, #8ab407, #608a02);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#8ab407), to(#608a02));
+    background-image: -webkit-linear-gradient(top, #8ab407, #608a02);
+    background-image: linear-gradient(top, #8ab407, #608a02);
+    /*--IE9 DOES NOT SUPPORT CSS3 GRADIENT BACKGROUNDS--*/
+
 }
 .main-navigation li {
     float:left;
@@ -291,9 +367,11 @@ h2 {
     text-decoration: none;
     text-transform: capitalize;
 }
+
 .main-navigation a:hover {
-    color: #21759b;
+    color: #222;
 }
+
 .main-navigation ul.nav-menu,
 .main-navigation div.nav-menu > ul {
     /*display: none;*/
@@ -306,12 +384,18 @@ h2 {
 
 #frontPageRefNum {
     padding:24px 48px;
-    background-color: #88af4b;
+    background-color: #738c4d;
     color:#fff;
 }
 
 #frontPageRefNum h3 {
     color:#fff;
+    padding:14px 24px;
+    border: 3px #fff solid;
+}
+
+#frontPageRefNum h3 a {
+    color:#38462d;
 }
 
 .patientService {
@@ -384,8 +468,8 @@ input#ref_number {
 
 #secondary {
     float:left;
-    width:240px;
-    padding:36px 48px;
+    width:264px;
+    padding:36px;
     background-color:#f8f8f8;
     border-left: 1px #ddd solid;
 }
@@ -420,6 +504,23 @@ table.cart thead {
 ul.products span.amount {
     font-size:18px;
     font-style:italic;
+}
+
+#loginform-page {
+    padding:48px;
+    background:#f8f8f8;
+}
+
+.woocommerce.impact ul.product_list_widget li img {
+    float:left;
+    margin-right:18px;
+}
+
+.woocommerce.impact ul.product_list_widget li {
+    padding:9px 12px 6px 12px;
+    margin-bottom: 6px;
+    background:#fff;
+    border:1px #ddd solid;
 }
 
 

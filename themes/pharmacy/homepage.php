@@ -9,7 +9,7 @@ get_header(); ?>
 <div id="mainPageContent">
 	
 	<div id="frontPageRefNum">
-		<h3>do you have a reference number? Please click <a href="<?php echo site_url(); ?>/claim-an-order">here</a> to claim and pay for the order</h3>
+		<h3>do you have an order reference number? <a href="<?php echo site_url(); ?>/claim-an-order">claim it</a></h3>
 	</div> 
 
 	<div id="patientServices">

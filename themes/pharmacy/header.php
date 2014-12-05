@@ -24,7 +24,7 @@
 
     <?php wp_head(); ?>
 </head>
-<body <?php body_class('woocommerce'); ?>>
+<body <?php body_class('woocommerce impact'); ?>>
 
 <div id="page" class="hfeed site">
     <div id="top-navigation">
@@ -51,6 +51,9 @@
                     <img src="<?php  ?>" alt="">
                     <h2>Welcome to impact pharmacy online</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque sint non quod harum commodi quo excepturi rem assumenda? Soluta aliquid in quis perferendis obcaecati ex expedita, neque aspernatur id quidem.</p>
+                    <div class="sliderColumn">
+                        
+                    </div>
                 </div>
             </div>
         <?php endif; ?>
