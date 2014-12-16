@@ -1,0 +1,40 @@
+a, a:visited {
+    color:#6da11d;
+}
+
+a:hover {
+    color:#6da11d;
+}
+
+.impactNotice {
+    padding:12px 18px;
+    border:1px #8CCA5E solid;
+}
+
+ul {
+    margin:0;
+    padding:0;
+}
+
+body {
+    font-size:14px;
+    font-family:helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    background: #d4d9cc;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Oswald', helvetica, Arial, sans-serif; 
+    text-transform: capitalize;
+    font-weight:normal;
+    color:#444;
+}
+
+h2 {
+    font-size:20px;
+}
+
+.centered {
+    width:960px;
+    margin:0 auto;
+}

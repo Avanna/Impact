@@ -4,8 +4,7 @@
  * Include impact specific functions here
  */
 
-include 'impact-functions.php';
-
+require 'impact-functions.php';
 
 /**
  * Twenty Twelve functions and definitions.
@@ -111,7 +110,7 @@ function twentytwelve_scripts_styles() {
 	/*
 	 * Adds JavaScript for handling the navigation menu hide-and-show behavior.
 	 */
-	wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
+	// wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
 
 	/*
 	 * Loads our special font CSS file.
@@ -162,6 +161,20 @@ function twentytwelve_scripts_styles() {
 	$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
+
+// impact add scripts 
+
+function add_ip_scripts(){
+	
+	//wp_deregister_script( 'jquery' );
+	
+	//wp_enqueue_script( 'jquery-1.8.0', get_bloginfo('template_directory') . '/js/jquery-1.8.0.min.js', array(), false, true);
+		
+	wp_enqueue_script('script', (get_bloginfo('template_url')) . '/js/main.js', array('jquery'), false, true);
+	
+}
+
+add_action( 'wp_enqueue_scripts', 'add_ip_scripts' );
 
 /**
  * Creates a nicely formatted and more specific title element text
@@ -472,176 +485,6 @@ add_action( 'customize_preview_init', 'twentytwelve_customize_preview_js' );
 
 
 
-// Our hooked in function - $fields is passed via the filter!
-/**
- * Add the field to the checkout
- */
-add_action( 'woocommerce_after_checkout_billing_form', 'my_custom_checkout_field' );
- 
-function my_custom_checkout_field( $checkout ) {
- 
-    echo '<div id="my_custom_checkout_field"><h2>' . __('My Field') . '</h2>';
- 
-    woocommerce_form_field( 'my_field_name', array(
-        'type'          => 'text',
-        'class'         => array('my-field-class form-row-wide'),
-        'label'         => __('Fill in this field'),
-        'placeholder'   => __('Enter something'),
-        ), $checkout->get_value( 'my_field_name' ));
- 
-    echo '</div>';
- 
-}
-
-/**
- * Process the checkout
- */
-add_action('woocommerce_checkout_process', 'my_custom_checkout_field_process');
- 
-function my_custom_checkout_field_process() {
-    // Check if set, if its not set add an error.
-    if ( ! $_POST['my_field_name'] )
-        wc_add_notice( __( 'Please enter something into this new shiny field.' ), 'error' );
-}
-
-/**
- * Update the order meta with field value
- */
-add_action( 'woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta' );
- 
-function my_custom_checkout_field_update_order_meta( $order_id ) {
-    if ( ! empty( $_POST['my_field_name'] ) ) {
-        update_post_meta( $order_id, 'My Field', sanitize_text_field( $_POST['my_field_name'] ) );
-    }
-}
-
-
-function randString($length, $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') {
-    $str = '';
-    $count = strlen($charset);
-    while ($length--) {
-        $str .= $charset[mt_rand(0, $count-1)];
-    }
-    return $str;
-}
-
-/**
- * Display field value on the order edit page
- */
-add_action( 'woocommerce_admin_order_data_after_billing_address', 'ref_number_field_display_admin_order_meta', 10, 1 );
- 
-function ref_number_field_display_admin_order_meta($order){
-    echo '<p><strong>'.__('Reference Number').':</strong> ' . get_post_meta( $order->id, 'ref_number', true ) . '</p>';
-
-    global $woocommerce, $post;
-
-    $ref_number = get_post_meta( $order->id, 'ref_number', true );
-  
-  	echo '<div class="options_group adminRefNumberDisplay leftBorder">';
-
-	  	if(isset($ref_number) && $ref_number !== "") {
-	  		$new_ref_number = $ref_number;
-	  	} else {
-	  		$new_ref_number = randString(10);
-	  	}
-	  	
-	  
-	  	// Custom fields will be created here...
-	  	// Text Field
-		woocommerce_wp_text_input( 
-			array( 
-				'id'          => 'ref_number', 
-				'label'       => __( '<h2>Order Reference Number<h2>', 'woocommerce' ), 
-				'value' => $new_ref_number,
-				'desc_tip'    => 'true',
-				'description' => __( 'This is the reference number for the order', 'woocommerce' ) 
-			)
-		);
-  
-  	echo '</div>';
-
-  	echo '<div class="options_group adminOrderRequesterDisplay leftBorder">';
-	  
-	  	// Custom fields will be created here...
-	  	// Text Field
-		woocommerce_wp_text_input( 
-			array( 
-				'id'          => 'order_requester', 
-				'label'       => __( '<h2>Name of person requesting order<h2>', 'woocommerce' ), 
-				'desc_tip'    => 'true',
-				'description' => __( 'Please enter a name for the person requesting the order', 'woocommerce' ) 
-			)
-		);
-  
-  	echo '</div>';
-
-  	echo '<div class="orderTypeWrapper leftBorder">';
-		woocommerce_wp_select( 
-			array( 
-				'id'      => 'order_type', 
-				'label'   => __( '<h2>What kind of order is it?</h2>', 'woocommerce' ),
-				'options' => array(
-					'hospital_bill'   => __( 'Hospital Bill', 'woocommerce' ),
-					'prescription_medication'   => __( 'Prescription Medication', 'woocommerce' ),
-					'hamper' => __( 'Hamper', 'woocommerce' )
-				)
-			)
-		);
-	echo '</div>';
-}
-
-/**
- * Update the order meta with field value
- */
-add_action( 'woocommerce_process_shop_order_meta', 'order_extras_checkout_field_update_order_meta' );
- 
-function order_extras_checkout_field_update_order_meta( $order_id ) {
-    if ( ! empty( $_POST['ref_number'] ) ) {
-        update_post_meta( $order_id, 'ref_number', sanitize_text_field( $_POST['ref_number'] ) );
-    }
-
-    $order_type = $_POST['order_type'];
-	if( !empty( $order_type ) )
-		update_post_meta( $order_id, 'order_type', esc_attr( $order_type ) );
-
-	$order_requester = $_POST['order_requester'];
-	if( !empty( $order_requester ) )
-		update_post_meta( $order_id, 'order_requester', esc_attr( $order_requester ) );
-		
-}
-
-// Handle reference number submission
-
-add_action('admin_post_submit-form', '_handle_form_action'); // If the user is logged in
-add_action('admin_post_nopriv_submit-form', '_handle_form_action'); // If the user in not logged in
-function _handle_form_action(){
-
-	$ref_number = $_POST['ref_number'];
-
-	$args = array(
-	  	'post_type' => 'shop_order',
-	  	'post_status' => array_keys( wc_get_order_statuses() ),
-	  	'meta_query' => array(
-            array(
-                'key' => 'ref_number',
-                'value' => $ref_number
-            )
-        )
-	);
-
-	$my_query = new WP_Query($args);
-
-	if($my_query->have_posts()) {
-		$order_id = $my_query->posts[0]->ID;
-		$user_id = get_current_user_id();
-
-		update_post_meta( $order_id, '_customer_user', $user_id );
-
-		wp_redirect(site_url().'/my-account/');
-	} else {
-		echo 'Sorry no orders match that reference number. Please try again';
-	}
-}
 
 
 // // Display Fields

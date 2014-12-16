@@ -1,0 +1,19 @@
+#sliderWrapper {
+    /*border-top: 3px #969f2a solid;*/
+}
+
+#slider {
+    height:250px;
+   /* margin-bottom:30px;*/
+}
+
+#slider h2 {
+    font-size:24px;
+    color:#fff;
+}
+
+#slider p {
+    width:60%;
+    font-size:16px;
+    color:#fff;
+}

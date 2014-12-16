@@ -1,0 +1,69 @@
+.site-header .site-title {
+    width:300px;
+    height:72px;
+    text-indent: -9999px;
+    background: url(../../img/logo_shadow.png) no-repeat -10px 0px;
+    margin-bottom:0;
+}
+
+.site-header h2.site-description {
+    color:#fff;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+#page {
+    width:1064px;
+    /*padding:0px 48px;*/
+    margin:0 auto;
+    background:#fff;
+
+    -moz-box-shadow: 0px 0px 2px 2px #c4c1c4;
+    -webkit-box-shadow: 0px 0px 2px 2px #c4c1c4;
+    box-shadow: 0px 0px 2px 2px #c4c1c4;
+    /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+    /*IE 7 AND 8 DO NOT SUPPORT SPREAD PROPERTY OF SHADOWS*/
+}
+
+.site-header {
+    padding: 24px 48px 36px;
+    background:#88AF4F url(../../img/slider_bg.png) no-repeat 650px -31px;
+}
+
+.site-header h1,
+.site-header h2 {
+    /*text-align: center;*/
+}
+
+.site-header h1 a,
+.site-header h2 a {
+    color: #515151;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.site-header h1 a:hover,
+.site-header h2 a:hover {
+    color: #21759b;
+}
+
+.site-header h1 {
+    font-size: 24px;
+    font-size: 1.714285714rem;
+    line-height: 1.285714286;
+    margin-bottom: 14px;
+    margin-bottom: 1rem;
+}
+
+.site-header h2 {
+    font-weight: normal;
+    font-size: 13px;
+    font-size: 0.928571429rem;
+    line-height: 1.846153846;
+    color: #757575;
+}
+
+.header-image {
+    margin-top: 24px;
+    margin-top: 1.714285714rem;
+}
