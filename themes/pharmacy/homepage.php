@@ -9,22 +9,27 @@ get_header(); ?>
 <div id="mainPageContent">
 	
 	<div id="frontPageRefNum">
-		<h3>do you have an order reference number? <a href="<?php echo site_url(); ?>/claim-an-order">claim it</a></h3>
+		<h3>do you have an order reference number? <a href="<?php echo site_url(); ?>/claim-an-order">Pay for it now</a></h3>
 	</div> 
 
 	<div id="patientServices">
-		<div class="patientService">
-			<h2>prescriptions online</h2>
-			<p>You can now buy prescription medications for friends and family in Zimbabwe online.
-				Prescriptions Online™ is easy, safe, and convenient.
-			</p>
-			<a href="<?php echo site_url().'/prescriptions' ?>">Pay for Prescriptions</a>
+		<div class="patientService prescriptions">
+			<div id="prescriptionsLeft">
+				<h2>prescriptions online</h2>
+				<p>You can now buy prescription medications for friends and family in Zimbabwe online.
+					Prescriptions Online™ is easy, safe, and convenient.
+				</p>
+				<a class="orange_button" href="<?php echo site_url().'/prescriptions' ?>">more on prescriptions</a>
+			</div>
+			<div id="prescriptionsRight">
+				<p>Pay Online</p>
+			</div>
 		</div>
-		<div class="patientService">
+		<div class="patientService hospitalBills">
 			<h2>hospital bills</h2>
 			<p>Hospital Bill Pay™ is quicker, easier and cheaper than wiring or transferring money to friends and family in Zimbabwe to cover medical expenses. You can Pay any hospital, clinic, or doctor in Zimbabwe from anywhere in the world, anytime.
 			</p>
-			<a href="<?php echo site_url().'/hospital-bills' ?>">pay a hospital bill</a>
+			<a class="orange_button" href="<?php echo site_url().'/hospital-bills' ?>">more on hospital bills</a>
 		</div>
 	</div>
 

@@ -1,8 +1,5 @@
-a, a:visited {
-    color:#6da11d;
-}
-
-a:hover {
+a {
+    text-decoration: none;
     color:#6da11d;
 }
 
@@ -21,6 +18,7 @@ body {
     font-family:helvetica, Arial, sans-serif;
     line-height: 1.5;
     background: #d4d9cc;
+    color:#555;
 }
 
 h1, h2, h3, h4 {
@@ -31,10 +29,31 @@ h1, h2, h3, h4 {
 }
 
 h2 {
-    font-size:20px;
+    font-size:18px;
 }
 
 .centered {
     width:960px;
     margin:0 auto;
+}
+
+.orange_button {
+    display:inline-block;
+    margin:18px auto 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    padding: 7px 20px;
+    background: -moz-linear-gradient( top, #ffdd00 0%, #ffc800);
+    background: -webkit-gradient( linear, left top, left bottom, from(#ffdd00), to(#ffc800));
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #ff8c00;
+    -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    text-shadow: 0px -1px 3px rgba(255,255,255,0), 0px 1px 0px rgba(255,255,255,0);
 }

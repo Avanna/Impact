@@ -32,9 +32,9 @@
     /*--IE9 DOES NOT SUPPORT CSS3 GRADIENT BACKGROUNDS--*/
 
 
-    -moz-box-shadow: 0px 1px 1px #333;
+    /*-moz-box-shadow: 0px 1px 1px #333;
     -webkit-box-shadow: 0px 1px 1px #333;
-    box-shadow: 0px 1px 1px #333;
+    box-shadow: 0px 1px 1px #333;*/
     filter: progid:DXImageTransform.Microsoft.Shadow(strength = 2, direction = 180, color = '#333');
     -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(strength = 2, Direction = 180, Color = '#333')";
     /*Shadows look very different in IE (Only cardinal directions supported)*/

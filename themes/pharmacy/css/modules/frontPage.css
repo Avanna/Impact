@@ -1,17 +1,25 @@
 #frontPageRefNum {
-    padding:24px 48px;
-    background-color: #738c4d;
-    color:#fff;
+    padding:14px 48px;
+    /*background-color: #FFC009;*/
+    color:#555;
+    background: -webkit-gradient( linear, left top, left bottom, from(#f9f9f9), to(#ddd));
+
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #aaa;
+    -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
 }
 
 #frontPageRefNum h3 {
-    color:#fff;
-    padding:14px 24px;
-    border: 3px #fff solid;
+    color:#444;
+    line-height: 0;
+   /* padding:14px 24px;
+    border: 3px #bbb solid;*/
 }
 
 #frontPageRefNum h3 a {
-    color:#38462d;
+    font-style: italic;
+    color:#5d900f;
 }
 
 .patientService {
@@ -19,8 +27,38 @@
     border-bottom:1px #ddd solid;
 }
 
+.patientService.prescriptions {
+    height: 206px;
+    background:#f7f7f7 url('../../img/prescription.jpg') no-repeat right;
+}
+
+.patientService.hospitalBills {
+    height: 206px;
+    background: #f9f9f9;
+}
+
 .patientService a {
     text-transform: capitalize;
+}
+
+#prescriptionsLeft {
+    float:left;
+    width:600px;
+}
+
+#prescriptionsRight {
+    float:right;
+    width:300px;
+}
+
+#prescriptionsRight p {
+    font-size:48px;
+    padding:18px 18px;
+    border:7px #fff solid;
+    text-align: center;
+    text-transform: capitalize;
+    color:#fff;
+    text-shadow: 1px 1px 1px #222;
 }
 
 #mainPageShop {

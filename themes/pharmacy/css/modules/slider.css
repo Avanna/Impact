@@ -3,17 +3,28 @@
 }
 
 #slider {
-    height:250px;
+    /*height:250px;*/
+    padding:48px;
+    border: 1px #91c347 solid;
+    border-top: none;
+    margin:0 auto;
    /* margin-bottom:30px;*/
 }
 
+#sliderLeft {
+	float:left;
+	width:500px;
+}
+
 #slider h2 {
-    font-size:24px;
+    font-size:30px;
     color:#fff;
+    padding-bottom:9px;
+    border-bottom: 3px #fff solid;
+    text-shadow: 1px 1px 0px #666;
 }
 
 #slider p {
-    width:60%;
     font-size:16px;
     color:#fff;
 }
