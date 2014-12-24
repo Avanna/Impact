@@ -45,7 +45,7 @@
 
 							// update_post_meta( $order_id, '_customer_user', $user_id );
 
-							echo "<p>This order was requested by ".get_post_meta($order_id, 'order_requester', true);
+							echo "<p>This order was requested by <b>".get_post_meta($order_id, 'patient_name', true)."</b></p>";
 
 							if($order->post_status === 'wc-completed') {
 								echo '<p class="impactNotice">This order has already been completed. Please contact us if you have any questions.</p>';

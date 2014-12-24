@@ -101,21 +101,48 @@
     color: #c86403 !important;
 }
 
+.roundedSearchForm {
+    height:52px;
+    background: #fff;
+    border: 5px #f3f3f3 solid;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    -moz-box-shadow: inset 0 0 3px #aaa;
+    -webkit-box-shadow: inset 1px 1px 2px #aaa;
+    box-shadow: inset 1px 1px 2px #aaa;
+    overflow: hidden;
+}
+
 .bigSubmitButton {
-    padding:12px 18px;
-    font-size:18px;
-    border:3px #ddd solid;
-    border-radius: 12px;
-    text-transform: uppercase;
+    float:right;
+    padding:10px 18px;
+    margin:6px 6px 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    padding: 10px 20px;
+    background: -moz-linear-gradient( top, #ffdd00 0%, #ffc800);
+    background: -webkit-gradient( linear, left top, left bottom, from(#ffdd00), to(#ffc800));
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    border: 1px solid #ff8c00;
+    -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    text-shadow: 0px -1px 3px rgba(255,255,255,0), 0px 1px 0px rgba(255,255,255,0);
 }
 
 input#ref_number {
-    width:60%;
-    margin:0 auto;
-    padding:12px 18px;
+    width:70%;
+    height:40px;
+    margin:6px 0 0 12px;
+    padding:0 18px;
     font-size:18px;
-    border:3px #ddd solid;
-    border-radius: 12px;
+    border:none;
 }
 
 /* ==!== Page styles ======================================================== */
@@ -129,13 +156,14 @@ input#ref_number {
     float:left;
     width:631px;
     padding:36px 48px;
+    background:#f8f8f8;
 }
 
 #secondary {
     float:left;
     width:264px;
     padding:36px;
-    background-color:#f8f8f8;
+    background-color:#f0f0f0;
     border-left: 1px #ddd solid;
 }
 
@@ -160,8 +188,8 @@ input#ref_number {
 
 
 table.cart thead {
-    background-color: #6da11d;
-    color:#fff;
+    background-color: #f8f8f8;
+    color:#555;
     padding-top:18px;
     padding-bottom: 18px;
 }
@@ -176,19 +204,197 @@ ul.products span.amount {
     background:#f8f8f8;
 }
 
+.woocommerce.impact ul.product_list_widget {
+    margin-bottom:30px;
+}
+
 .woocommerce.impact ul.product_list_widget li img {
     float:left;
     margin-right:18px;
+    border:5px #fff solid;
+    box-shadow: none;
 }
 
 .woocommerce.impact ul.product_list_widget li {
-    padding:9px 12px 6px 12px;
-    margin-bottom: 6px;
-    background:#fff;
-    border:1px #ddd solid;
+    padding:9px 0 9px;
+   /* margin-bottom: 6px;*/
+    /*background:#fff;*/
+    border-bottom:1px #ddd solid;
 }
 
+.refNumberForm {
+    padding:30px;
+    padding-top:0;
+    background:#fff;
+    border-right: 1px #ddd solid;
+    border-bottom: 1px #ddd solid;
+}
 
+.refNumberForm h3 {
+    padding: 18px 0px 14px;
+    border-bottom: 1px #aaa solid;
+}
+
+.woocommerce form .form-row label {
+}
+
+.woocommerce form .form-row input.input-text {
+    height:52px;
+    padding:0 18px;
+    margin-top: 12px;
+    background: #fff;
+    border: 6px #eee solid;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: inset 0 0 3px #aaa;
+    -webkit-box-shadow: inset 1px 1px 2px #aaa;
+    box-shadow: inset 1px 1px 2px #aaa;
+    overflow: hidden;
+}
+
+.woocommerce.impact #content form .form-row input[type=submit] {
+    padding:10px 18px;
+    margin:6px 6px 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    padding: 10px 20px;
+    background: -moz-linear-gradient( top, #ffdd00 0%, #ffc800);
+    background: -webkit-gradient( linear, left top, left bottom, from(#ffdd00), to(#ffc800));
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+    border: 1px solid #ff8c00;
+    -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    text-shadow: 0px -1px 3px rgba(255,255,255,0), 0px 1px 0px rgba(255,255,255,0);
+}
+
+.my_account_orders {
+    margin-bottom:36px;
+}
+
+.address h3 {
+    margin-top:0;
+}
+
+.addresses .address {
+    width:40% !important;
+    padding:24px;
+    background: #fff;
+    border:1px #ddd solid;
+    border-radius: 9px;
+}
+
+.impact.woocommerce .shop_table.my_account_orders, 
+.shop_table.order_details, 
+.impact.woocommerce #order_review .shop_table,
+.shop_table.cart {
+    padding:24px;
+    background: #fff;
+}
+
+.shop_table.cart td.actions {
+    padding:30px 0 0;
+}
+
+.woocommerce #content .shop_table.cart .checkout-button.button {
+    padding:6px 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    background: -moz-linear-gradient( top, #ffdd00 0%, #ffc800);
+    background: -webkit-gradient( linear, left top, left bottom, from(#ffdd00), to(#ffc800));
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #ff8c00;
+    -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    text-shadow: 0px -1px 3px rgba(255,255,255,0), 0px 1px 0px rgba(255,255,255,0);
+}
+
+.woocommerce.impact .cart-collaterals, .woocommerce-page.impact .cart-collaterals {
+    padding-top:36px;
+}
+
+.woocommerce.impact .cart-collaterals .cart_totals, .woocommerce.impact .cart-collaterals .cross-sells  {
+    width:40%;
+    padding:18px 4%;
+    background: #fff;
+}
+
+.woocommerce.impact .cart-collaterals .cart_totals h2, .woocommerce.impact .cart-collaterals .cross-sells h2 {
+    padding-bottom: 12px;
+    border-bottom: 2px #ddd solid;
+}
+
+.woocommerce.impact .cart-collaterals .cart_totals th {
+    width:60%;
+    line-height:1.2;
+    padding-bottom: 12px;
+    text-align:left;
+    vertical-align: center;
+}
+
+.impact.woocommerce table.shop_table.my_account_orders td {
+    padding-top:12px;
+    padding-bottom: 12px;
+}
+
+.woocommerce.impact .woocommerce-info, .woocommerce-page .woocommerce-info {
+    border-top: 3px solid #88AF4F;
+}
+
+.woocommerce.impact .woocommerce-info:before, .woocommerce-page .woocommerce-info:before {
+    background-color: #88AF4F;
+}
+
+.widget_product_search #searchform {
+    height: 36px;
+    background: #fff;
+    border: 5px #f3f3f3 solid;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    border-radius: 30px;
+    -moz-box-shadow: inset 0 0 3px #aaa;
+    -webkit-box-shadow: inset 1px 1px 2px #aaa;
+    box-shadow: inset 1px 1px 2px #aaa;
+    overflow: hidden;
+}
+
+.widget_product_search #searchform input[type=text] {
+    margin:9px 0 0 9px;
+    border: none;
+}
+
+.widget_product_search #searchform input[type=submit] {
+    float: right;
+    padding: 6px 12px;
+    margin: 5px 5px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: bold;
+    color: #555;
+    background: -moz-linear-gradient( top, #ffdd00 0%, #ffc800);
+    background: -webkit-gradient( linear, left top, left bottom, from(#ffdd00), to(#ffc800));
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid #ff8c00;
+    -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    text-shadow: 0px -1px 3px rgba(255,255,255,0), 0px 1px 0px rgba(255,255,255,0);
+}
 
 /* ==========================================================================
    Helper classes

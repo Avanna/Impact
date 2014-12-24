@@ -18,18 +18,20 @@
 			?>
 		
 			<?php if(is_user_logged_in()) : ?>
-				<h2>You are logged in</h2>
+				<div class="refNumberForm">
+					<h3>Please enter the reference # to pay for an order</h3>
 
-				<p>Please enter the reference # to pay for an order</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis ut commodi vero quae velit dignissimos facere. Dolor aperiam, eligendi doloremque atque mollitia inventore voluptates a unde libero assumenda accusamus nostrum.</p>
 
-				<form action="<?php echo site_url().'/accept-order' ?>" method="post">
-					<input type="text" name="ref_number" id="ref_number" />
-					<!-- <input type='hidden' name='action' value='submit-form' /> -->
-					
-					<?php wp_nonce_field('new-ref-number'); ?>
-					
-					<input type="submit" value="submit" class="bigSubmitButton">
-				</form>
+					<form action="<?php echo site_url().'/accept-order' ?>" method="post" class="roundedSearchForm">
+						<input type="text" name="ref_number" id="ref_number" />
+						<!-- <input type='hidden' name='action' value='submit-form' /> -->
+						
+						<?php wp_nonce_field('new-ref-number'); ?>
+						
+						<input type="submit" value="submit" class="bigSubmitButton">
+					</form>
+				</div>
 			<?php else : ?>
 				<h3 class="centered">Please login to continue or <a href="<?php echo site_url('/wp-login.php?action=register&redirect_to=' . get_permalink()); ?>" title="">create an account</a> </h3> 
 				<?php 

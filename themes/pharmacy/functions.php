@@ -5,6 +5,7 @@
  */
 
 require 'impact-functions.php';
+require 'inc/patient-post-type.php';
 
 /**
  * Twenty Twelve functions and definitions.
@@ -159,22 +160,23 @@ function twentytwelve_scripts_styles() {
 	 */
 	wp_enqueue_style( 'twentytwelve-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentytwelve-style' ), '20121010' );
 	$wp_styles->add_data( 'twentytwelve-ie', 'conditional', 'lt IE 9' );
+
+	wp_register_script('script', (get_bloginfo('template_url')) . '/js/main.js', array('jquery'), false, true);
+	wp_localize_script( 'script', 'ipAjax', array('ajaxurl' => 'admin-ajax.php') );
+	wp_enqueue_script('script');
 }
 add_action( 'wp_enqueue_scripts', 'twentytwelve_scripts_styles' );
 
-// impact add scripts 
 
-function add_ip_scripts(){
-	
-	//wp_deregister_script( 'jquery' );
-	
-	//wp_enqueue_script( 'jquery-1.8.0', get_bloginfo('template_directory') . '/js/jquery-1.8.0.min.js', array(), false, true);
-		
-	wp_enqueue_script('script', (get_bloginfo('template_url')) . '/js/main.js', array('jquery'), false, true);
-	
+function ip_admin_scripts() {
+	wp_register_script('ipAdmin', (get_bloginfo('template_url')) . '/js/ipAdmin.js', array('jquery'), false, true);
+	wp_localize_script( 'ipAdmin', 'ipAjax', array('ajaxurl' => 'admin-ajax.php') );
+	wp_enqueue_script('ipAdmin');
+
+	wp_enqueue_style('ipAdminCSS', (get_bloginfo('template_url')) . '/css/ipAdmin.css');
 }
 
-add_action( 'wp_enqueue_scripts', 'add_ip_scripts' );
+add_action( 'admin_enqueue_scripts', 'ip_admin_scripts' ); 
 
 /**
  * Creates a nicely formatted and more specific title element text

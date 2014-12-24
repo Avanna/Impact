@@ -108,9 +108,25 @@ function randString($length, $charset='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmno
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'display_admin_custom_order_meta', 10, 1 );
  
 function display_admin_custom_order_meta($order){
-    echo '<p><strong>'.__('Recipient Phone Number').':</strong> ' . get_post_meta( $order->id, 'recipient_phone', true ) . '</p>';
 
-    global $woocommerce, $post;
+	global $woocommerce, $post;
+
+	$patient_name = get_post_meta( $order->id, 'patient_name', true );
+
+	echo '<div class="orderTypeWrapper leftBorder">';
+
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'patient_name', 
+				'label'       => __( '<h2>Patient Name<h2>', 'woocommerce' ), 
+				'value' => $patient_name,
+				'desc_tip'    => 'true',
+				'description' => __( 'This is the Order Recipient\'s phone number', 'woocommerce' ) 
+			)
+		);
+	echo '</div><div id="searchResults"></div>';
+
+    echo '<p><strong>'.__('Recipient Phone Number').':</strong> ' . get_post_meta( $order->id, 'recipient_phone', true ) . '</p>';
 
     $recipient_phone = get_post_meta( $order->id, 'recipient_phone', true );
 
@@ -192,6 +208,11 @@ function display_admin_custom_order_meta($order){
 add_action( 'woocommerce_process_shop_order_meta', 'order_extras_checkout_field_update_order_meta' );
  
 function order_extras_checkout_field_update_order_meta( $order_id ) {
+
+	if ( ! empty( $_POST['patient_name'] ) ) {
+        update_post_meta( $order_id, 'patient_name', sanitize_text_field( $_POST['patient_name'] ) );
+    }
+
 	if ( ! empty( $_POST['recipient_phone'] ) ) {
         update_post_meta( $order_id, 'recipient_phone', sanitize_text_field( $_POST['recipient_phone'] ) );
     }
@@ -322,4 +343,48 @@ function custom_pre_get_posts_query( $q ) {
 	remove_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
 
 }
+
+function get_patients() {
+	global $wpdb;
+
+	$patients = array();
+	$limit = 10;
+
+	if(isset($_REQUEST["searchVal"])) {
+		$search_val = strtolower(addslashes($_REQUEST["searchVal"]));
+	}
+
+	$sanitizedSearchVal = $wpdb->esc_like(trim($search_val));
+
+	$sql = $wpdb->prepare("
+		SELECT m.meta_value AS name, m2.meta_value AS patient_id
+		FROM $wpdb->posts p
+		INNER JOIN $wpdb->postmeta m ON (p.ID = m.post_id)
+		INNER JOIN $wpdb->postmeta m2 ON (p.ID = m2.post_id)
+		WHERE p.post_type = 'patient'
+		AND p.post_status = 'publish'
+		AND m.meta_key = 'patient_name' 
+		AND lower(m.meta_value) like '%s'
+		AND m2.meta_key = 'patient_id'
+		GROUP BY p.ID",
+		'%'. $sanitizedSearchVal . '%'
+	);
+
+	$results = $wpdb->get_results($sql);
+
+	foreach($results as $result) {
+		$patients[$result->patient_id] = $result->name;
+	}
+
+	if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
+	{
+	      die(json_encode($patients));
+	}		
+	else {
+		return $patients;
+	}	
+}
+
+add_action( 'wp_ajax_nopriv_get_patients', 'get_patients' );
+add_action( 'wp_ajax_get_patients', 'get_patients' );
 

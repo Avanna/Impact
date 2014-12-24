@@ -25,7 +25,7 @@ if(isset($_POST['order-id']) && $_POST['order-id'] !== '') {
 			echo '<p class="impactNotice">Sorry there was a problem adding the order to your account please try again.</p>';
 		}
 	} else {
-		echo '<p class="impactNotice">You have already claimed this order. You can view the details or pay for it below.</p>';
+		echo '<p class="impactNotice">You have already claimed this order. The order # is '. $order_id .'. You can view the details or pay for it below.</p>';
 	}
 }	
 		

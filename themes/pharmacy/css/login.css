@@ -1,7 +1,20 @@
 #login {
-	
+	width:460px;
 }
 
 #login h1 a { 
 	background-image: none;
+}
+
+#loginform input[type=text], #loginform input[type=password] {
+	height:52px;
+    background: #fff;
+    border: 5px #f3f3f3 solid;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: inset 0 0 3px #aaa;
+    -webkit-box-shadow: inset 1px 1px 2px #aaa;
+    box-shadow: inset 1px 1px 2px #aaa;
+    overflow: hidden;
 }

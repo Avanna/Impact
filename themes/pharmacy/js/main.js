@@ -1,6 +1,5 @@
 // equalize the main content and the side bar height
 
-
 (function($){
 	$(document).ready(function() {
 		

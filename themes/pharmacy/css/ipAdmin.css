@@ -1,0 +1,38 @@
+#searchResults {
+
+}
+
+#searchResults ul {
+	padding:18px;
+	border:1px #ddd solid;
+	background:#fff;
+	border-radius: 6px;
+}
+
+#searchResults ul li {
+	font-size:16px;
+	padding:3px 9px;
+	border-bottom: 1px #ddd solid;
+	text-transform: capitalize;
+}
+
+#searchResults ul li b {
+	color:#000;
+}
+
+#searchResults ul li p {
+	margin-top:3px;
+	margin-bottom: 3px;
+}
+
+#searchResults ul li a {
+	color:#777;
+}
+
+#searchResults .red {
+	color:red;
+}
+
+#adminPatientNameLookUp {
+	text-transform: capitalize;
+}
