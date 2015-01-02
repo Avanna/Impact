@@ -12,8 +12,8 @@ function create_pharmacies() {
     'new_item' => __('New Patient'),
     'view_item' => __('View Patient'),
     'search_items' => __('Search Patients'),
-    'not_found' =>  __('No Patience found'),
-    'not_found_in_trash' => __('No Patience found in Trash'),
+    'not_found' =>  __('No Patients found'),
+    'not_found_in_trash' => __('No Patients found in Trash'),
     'parent_item_colon' => ''
   );
 
@@ -23,6 +23,9 @@ function create_pharmacies() {
     array(
       'labels' => $labels,
       'public' => true,
+      'exclude_from_search' => true,
+      'publicly_querable' => false,
+      'show_in_nav_menus' => false,
       'supports' => $supports
     )
   );

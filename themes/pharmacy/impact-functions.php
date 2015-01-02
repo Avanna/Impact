@@ -21,42 +21,66 @@ add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 /**
  * Add the field to the checkout
  */
-add_action( 'woocommerce_after_checkout_billing_form', 'recipient_phone_checkout_field' );
+add_action( 'woocommerce_after_checkout_billing_form', 'recipient_checkout_fields' );
  
-function recipient_phone_checkout_field( $checkout ) {
+function recipient_checkout_fields( $checkout ) {
+
+    echo '<div id="recipient_phone_checkout_field"><h2>' . __('Recipient Information') . '</h2>';
  
-    echo '<div id="recipient_phone_checkout_field"><h2>' . __('Recipient phone number') . '</h2>';
+    woocommerce_form_field( 'recipient_name', array(
+        'type'          => 'text',
+        'class'         => array('my-field-class form-row-wide'),
+        'label'         => __('Recipient Name'),
+        'placeholder'   => __('Enter the recipient name here'),
+    ), $checkout->get_value( 'recipient_phone' ));
  
     woocommerce_form_field( 'recipient_phone', array(
         'type'          => 'text',
         'class'         => array('my-field-class form-row-wide'),
-        'label'         => __('Please Provide a phone number to notify the recipient if you are ordering for someone else'),
+        'label'         => __('Phone Number'),
         'placeholder'   => __('Enter the recipient phone number here'),
-        ), $checkout->get_value( 'recipient_phone' ));
+    ), $checkout->get_value( 'recipient_phone' ));
+
+    woocommerce_form_field( 'order_notes', array(
+        'type'          => 'textarea',
+        'class'         => array('my-field-class form-row-wide'),
+        'label'         => __('Note For Recipient'),
+        'placeholder'   => __('Enter a note for the recipient'),
+    ), $checkout->get_value( 'order_notes' ));
  
     echo '</div>';
- 
 }
 
 /**
  * Process the checkout
  */
-add_action('woocommerce_checkout_process', 'my_custom_checkout_field_process');
+add_action('woocommerce_checkout_process', 'recipient_checkout_fields_process');
  
-function my_custom_checkout_field_process() {
+function recipient_checkout_fields_process() {
     // Check if set, if its not set add an error.
+    if ( ! $_POST['recipient_name'] )
+        wc_add_notice( __( 'Please enter a recipient name.' ), 'error' );
+
     if ( ! $_POST['recipient_phone'] )
-        wc_add_notice( __( 'Please enter something into this new shiny field.' ), 'error' );
+        wc_add_notice( __( 'Please enter the recipient number.' ), 'error' );
 }
 
 /**
  * Update the order meta with field value
  */
-add_action( 'woocommerce_checkout_update_order_meta', 'recipient_phone_checkout_field_update_order_meta' );
+add_action( 'woocommerce_checkout_update_order_meta', 'recipient_info_checkout_fields_update_order_meta' );
  
-function recipient_phone_checkout_field_update_order_meta( $order_id ) {
+function recipient_info_checkout_fields_update_order_meta( $order_id ) {
+    if ( ! empty( $_POST['recipient_name'] ) ) {
+        update_post_meta( $order_id, 'recipient_name', sanitize_text_field( $_POST['recipient_name'] ) );
+    }
+
     if ( ! empty( $_POST['recipient_phone'] ) ) {
         update_post_meta( $order_id, 'recipient_phone', sanitize_text_field( $_POST['recipient_phone'] ) );
+    }
+
+    if ( ! empty( $_POST['order_notes'] ) ) {
+        update_post_meta( $order_id, 'order_notes', sanitize_text_field( $_POST['order_notes'] ) );
     }
 }
 
@@ -69,8 +93,6 @@ add_action( 'woocommerce_checkout_order_processed', 'send_recipient_notification
 function send_recipient_notifications($order_id, $procesed) {
 
 	$recipient_phone = get_post_meta( $order_id, 'recipient_phone', true );
-
-	error_log("we are in the function ".$recipient_phone);
 
 	if(!empty($recipient_phone)) {
 		require("library/twilio-php/Services/Twilio.php");
@@ -111,24 +133,71 @@ function display_admin_custom_order_meta($order){
 
 	global $woocommerce, $post;
 
-	$patient_name = get_post_meta( $order->id, 'patient_name', true );
+	
+	$patient_id = get_post_meta( $order->id, 'patient_id', true);
 
-	echo '<div class="orderTypeWrapper leftBorder">';
+	$patient = get_post_meta($patient_id);
+	$patient_ailment = get_post_meta( $order->id, 'patient_ailment', true );
+
+	$recipient_phone = get_post_meta( $order->id, 'recipient_phone', true );
+	$recipient_name = get_post_meta( $order->id, 'recipient_name', true );
+
+	$ref_number = get_post_meta( $order->id, 'ref_number', true );
+	$order_notes = get_post_meta( $order->id, 'order_notes', true );
+
+	$hospital_id = get_post_meta( $order->id, 'hospital_id', true );
+	$hospital = get_post_meta($hospital_id);
+
+
+	echo '<div id="ipCustomOrderFields" class="orderTypeWrapper leftBorder">';
 
 		woocommerce_wp_text_input( 
 			array( 
-				'id'          => 'patient_name', 
-				'label'       => __( '<h2>Patient Name<h2>', 'woocommerce' ), 
-				'value' => $patient_name,
+				'id'          => 'patient_name_lookup',
+				'class'       => 'lookupSearchField',
+				'label'       => __( '<h2>Search Patients By Name<h2>', 'woocommerce' ), 
 				'desc_tip'    => 'true',
-				'description' => __( 'This is the Order Recipient\'s phone number', 'woocommerce' ) 
+				'description' => __( 'Lookup the patient info by name', 'woocommerce' ) 
 			)
 		);
-	echo '</div><div id="searchResults"></div>';
 
-    echo '<p><strong>'.__('Recipient Phone Number').':</strong> ' . get_post_meta( $order->id, 'recipient_phone', true ) . '</p>';
+		echo '<div id="searchResults" class="adminSearchResults"></div>';
 
-    $recipient_phone = get_post_meta( $order->id, 'recipient_phone', true );
+		echo '<div id="patientInfo" class="resultInfo">';
+
+			if($patient) : 
+
+			 	$name = $patient['patient_name'][0];
+			 	$phone = $patient['phone'][0];
+			 	$email = $patient['email'][0];
+			 	$address = $patient['address'][0];
+ 
+			 	echo '<h3>' . $name . '</h3>';
+				echo '<p><b>Phone:</b> ' . $phone . '</p>';
+			 	echo '<p><b>Email:</b> ' . $email . '</p>';
+				echo '<p><b>Address:</b> ' . $address . '</p>';
+
+			endif;
+
+		echo '</div>';
+
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'recipient_name', 
+				'label'       => __( '<h2>Recipient Name<h2>', 'woocommerce' ), 
+				'value' => $recipient_name,
+				'desc_tip'    => 'true',
+				'description' => __( 'This is the Order Recipient\'s name', 'woocommerce' ) 
+			)
+		);
+
+		woocommerce_wp_hidden_input( 
+			array( 
+				'id'          => 'patient_id', 
+				'value' => $patient_id
+			)
+		);
+	echo '</div>';
 
     echo '<div class="options_group adminRefNumberDisplay leftBorder">';
 	  
@@ -145,8 +214,6 @@ function display_admin_custom_order_meta($order){
 		);
   
   	echo '</div>';
-
-    $ref_number = get_post_meta( $order->id, 'ref_number', true );
   
   	echo '<div class="options_group adminRefNumberDisplay leftBorder">';
 
@@ -154,11 +221,9 @@ function display_admin_custom_order_meta($order){
 	  		$new_ref_number = $ref_number;
 	  	} else {
 	  		$new_ref_number = randString(10);
+	  		update_post_meta($order->id, 'ref_number', $new_ref_number);
 	  	}
-	  	
-	  
-	  	// Custom fields will be created here...
-	  	// Text Field
+
 		woocommerce_wp_text_input( 
 			array( 
 				'id'          => 'ref_number', 
@@ -175,12 +240,13 @@ function display_admin_custom_order_meta($order){
 	  
 	  	// Custom fields will be created here...
 	  	// Text Field
-		woocommerce_wp_text_input( 
+		woocommerce_wp_textarea_input( 
 			array( 
-				'id'          => 'order_requester', 
-				'label'       => __( '<h2>Name of person requesting order<h2>', 'woocommerce' ), 
+				'id'          => 'order_notes', 
+				'value'       =>  $order_notes,
+				'label'       => __( '<h2>Order Notes<h2>', 'woocommerce' ), 
 				'desc_tip'    => 'true',
-				'description' => __( 'Please enter a name for the person requesting the order', 'woocommerce' ) 
+				'description' => __( 'Enter any additional information about the order', 'woocommerce' ) 
 			)
 		);
   
@@ -200,6 +266,55 @@ function display_admin_custom_order_meta($order){
 			)
 		);
 	echo '</div>';
+
+	echo '<div id="hospitalFieldsWrapper" class="leftBorder">';
+
+		woocommerce_wp_text_input( 
+			array( 
+				'id'          => 'hospital_name_lookup',
+				'class'       => 'lookupSearchField', 
+				'label'       => __( '<h2>Search Hospitals By Name<h2>', 'woocommerce' ),
+				'desc_tip'    => 'true', 
+				'description' => __( 'Use this to find a hospital', 'woocommerce' ) 
+			)
+		);
+
+		echo '<div id="hospitalResults" class="adminSearchResults"></div>';
+
+		echo '<div id="hospitalInfo" class="resultInfo">';
+
+			if($hospital) : 
+
+			 	$name = $hospital['hospital_name'][0];
+			 	$phone = $hospital['phone'][0];
+			 	$email = $hospital['email'][0];
+			 	$address = $hospital['address'][0];
+ 
+			 	echo '<h3>' . $name . '</h3>';
+				echo '<p><b>Phone:</b> ' . $phone . '</p>';
+			 	echo '<p><b>Email:</b> ' . $email . '</p>';
+				echo '<p><b>Address:</b> ' . $address . '</p>';
+
+			endif;
+		echo '</div>';
+
+		woocommerce_wp_textarea_input( 
+			array( 
+				'id'          => 'patient_ailment', 
+				'value'       =>  $patient_ailment,
+				'label'       => __( '<h2>What was the patient getting treated for?<h2>', 'woocommerce' ), 
+				'desc_tip'    => 'true',
+				'description' => __( 'What was the patient getting treated for?', 'woocommerce' ) 
+			)
+		);
+
+		woocommerce_wp_hidden_input( 
+			array( 
+				'id'          => 'hospital_id', 
+				'value' => $hospital_id
+			)
+		);
+	echo '</div>';
 }
 
 /**
@@ -209,8 +324,12 @@ add_action( 'woocommerce_process_shop_order_meta', 'order_extras_checkout_field_
  
 function order_extras_checkout_field_update_order_meta( $order_id ) {
 
-	if ( ! empty( $_POST['patient_name'] ) ) {
-        update_post_meta( $order_id, 'patient_name', sanitize_text_field( $_POST['patient_name'] ) );
+	if ( ! empty( $_POST['recipient_name'] ) ) {
+        update_post_meta( $order_id, 'recipient_name', sanitize_text_field( $_POST['recipient_name'] ) );
+    }
+
+    if ( ! empty( $_POST['patient_id'] ) ) {
+        update_post_meta( $order_id, 'patient_id', sanitize_text_field( $_POST['patient_id'] ) );
     }
 
 	if ( ! empty( $_POST['recipient_phone'] ) ) {
@@ -225,9 +344,17 @@ function order_extras_checkout_field_update_order_meta( $order_id ) {
 	if( !empty( $order_type ) )
 		update_post_meta( $order_id, 'order_type', esc_attr( $order_type ) );
 
-	$order_requester = $_POST['order_requester'];
-	if( !empty( $order_requester ) )
-		update_post_meta( $order_id, 'order_requester', esc_attr( $order_requester ) );
+	$order_notes = $_POST['order_notes'];
+	if( !empty( $order_notes ) )
+		update_post_meta( $order_id, 'order_notes', esc_attr( $order_notes ) );
+
+	$patient_ailment = $_POST['patient_ailment'];
+	if( !empty( $patient_ailment ) )
+		update_post_meta( $order_id, 'patient_ailment', esc_attr( $patient_ailment ) );
+
+	$hospital_id = $_POST['hospital_id'];
+	if( !empty( $hospital_id ) )
+		update_post_meta( $order_id, 'hospital_id', esc_attr( $hospital_id ) );
 		
 }
 
@@ -357,7 +484,7 @@ function get_patients() {
 	$sanitizedSearchVal = $wpdb->esc_like(trim($search_val));
 
 	$sql = $wpdb->prepare("
-		SELECT m.meta_value AS name, m2.meta_value AS patient_id
+		SELECT m.post_id AS post_id, m.meta_value AS name, m2.meta_value AS patient_id
 		FROM $wpdb->posts p
 		INNER JOIN $wpdb->postmeta m ON (p.ID = m.post_id)
 		INNER JOIN $wpdb->postmeta m2 ON (p.ID = m2.post_id)
@@ -373,7 +500,9 @@ function get_patients() {
 	$results = $wpdb->get_results($sql);
 
 	foreach($results as $result) {
-		$patients[$result->patient_id] = $result->name;
+		$patients[$result->patient_id]['name'] = $result->name;
+		$patients[$result->patient_id]['postId'] = $result->post_id;
+		$patients[$result->patient_id]['patientId'] = $result->patient_id;
 	}
 
 	if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
@@ -387,4 +516,73 @@ function get_patients() {
 
 add_action( 'wp_ajax_nopriv_get_patients', 'get_patients' );
 add_action( 'wp_ajax_get_patients', 'get_patients' );
+
+function get_hospitals() {
+	global $wpdb;
+
+	$hospitals = array();
+	$limit = 10;
+
+	if(isset($_REQUEST["searchVal"])) {
+		$search_val = strtolower(addslashes($_REQUEST["searchVal"]));
+	}
+
+	$sanitizedSearchVal = $wpdb->esc_like(trim($search_val));
+
+	$sql = $wpdb->prepare("
+		SELECT m.post_id AS post_id, m.meta_value AS name, m2.meta_value AS hospital_id
+		FROM $wpdb->posts p
+		INNER JOIN $wpdb->postmeta m ON (p.ID = m.post_id)
+		INNER JOIN $wpdb->postmeta m2 ON (p.ID = m2.post_id)
+		WHERE p.post_type = 'hospital'
+		AND p.post_status = 'publish'
+		AND m.meta_key = 'hospital_name' 
+		AND lower(m.meta_value) like '%s'
+		AND m2.meta_key = 'hospital_id'
+		GROUP BY p.ID",
+		'%'. $sanitizedSearchVal . '%'
+	);
+
+	$results = $wpdb->get_results($sql);
+
+	foreach($results as $result) {
+		$hospitals[$result->hospital_id]['name'] = $result->name;
+		$hospitals[$result->hospital_id]['postId'] = $result->post_id;
+		$hospitals[$result->hospital_id]['patientId'] = $result->hospital_id;
+	}
+
+	if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
+	{
+	     die(json_encode($hospitals));
+	}		
+	else {
+		return $hospitals;
+	}	
+}
+
+add_action( 'wp_ajax_nopriv_get_hospitals', 'get_hospitals' );
+add_action( 'wp_ajax_get_hospitals', 'get_hospitals' );
+
+function ip_get_post() {
+
+	global $post;
+
+	if(isset($_REQUEST["postId"])) {
+		$post_id = strtolower(addslashes($_REQUEST["postId"]));
+	}
+
+	$result = get_post_meta($post_id);
+
+	if ( !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' )
+	{
+	      die(json_encode($result));
+	}		
+	else {
+		return $result;
+	}	
+
+}
+
+add_action( 'wp_ajax_nopriv_ip_get_post', 'ip_get_post' );
+add_action( 'wp_ajax_ip_get_post', 'ip_get_post' );
 

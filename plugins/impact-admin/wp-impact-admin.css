@@ -2,15 +2,112 @@
 
 }
 
+.hidden {
+	display:none;
+}
+
+#ipCustomOrderFields {
+
+}
+
+#ipCustomOrderFields h2 {
+	margin-bottom: 12px !important;
+}
+
+#ipCustomOrderFields h3 {
+  padding:0;
+}
+
 #order_data .adminRefNumberDisplay input {
-	font-size:24px !important;
+	font-size:16px !important;
+	font-weight:bold;
 	padding:6px;
-	color:#7ad03a;
+	color:#000;
+}
+
+.resultInfo {
+	padding:18px;
+	border:1px #ddd solid;
+	background: #f0f0f0;
+}
+
+#order_data .order_data_column .resultInfo p {
+	padding:0 !important;
+	margin-top:0;
+	margin-bottom: 0;
+}
+
+#order_data .order_data_column h2 {
+	font-size:18px;
+	margin-bottom: 9px;
+}
+
+#order_data .order_data_column .resultInfo h3 {
+	font-size:16px;
+	padding:0;
+	margin-bottom:9px;
 }
 
 .leftBorder {
-	background-color:#f5f2f2;
-	border-left:5px #7ad03a solid;
-	padding:12px 24px;
-	margin-bottom:18px;
+	background-color:#f8f8f8;
+	/*border-left:5px #7ad03a solid;*/
+	padding:8px 24px 12px 24px;
+	margin-bottom:1px;
+	border-bottom: 1px #ddd solid;
+}
+
+.adminSearchResults ul {
+	padding:18px;
+	border:1px #7ad03a solid;
+	background:#fff;
+	border-radius: 6px;
+}
+
+.adminSearchResults ul li {
+	font-size:16px;
+	padding:3px 9px;
+	border-bottom: 1px #ddd solid;
+	text-transform: capitalize;
+}
+
+.adminSearchResults ul li b {
+	color:#000;
+}
+
+.adminSearchResults ul li p {
+	margin-top:3px;
+	margin-bottom: 3px;
+}
+
+.adminSearchResults ul li a {
+	color:#777;
+}
+
+.adminSearchResults .red {
+	color:red;
+}
+
+#adminPatientNameLookUp {
+	text-transform: capitalize;
+}
+
+.lookupSearchField {
+	width:80%;
+	font-size:16px;
+	height:44px;
+    background: #fff;
+    border: 6px #ddd solid;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: inset 0 0 3px #999;
+    -webkit-box-shadow: inset 1px 1px 2px #999;
+    box-shadow: inset 1px 1px 2px #999;
+    overflow: hidden;
+}
+
+
+textarea#order_notes, textarea#patient_ailment {
+	width:60%;
+	height:90px;
 }

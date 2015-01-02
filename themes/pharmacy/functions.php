@@ -6,6 +6,7 @@
 
 require 'impact-functions.php';
 require 'inc/patient-post-type.php';
+require 'inc/hospital-post-type.php';
 
 /**
  * Twenty Twelve functions and definitions.

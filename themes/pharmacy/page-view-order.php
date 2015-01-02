@@ -35,17 +35,17 @@
 						$my_query = new WP_Query($args);
 
 						if($my_query->have_posts()) {
-							$order_id = $my_query->posts[0]->ID;
 
+							$order_id = $my_query->posts[0]->ID;
 							$order = $my_query->posts[0];
 
-							// echo '<pre>';
-							// print_r($my_query->posts[0]);
-							// echo '</pre>';
+							echo "<p>This order was requested by <b>".get_post_meta($order_id, 'patient_name', true)."</b>.</p>";
 
-							// update_post_meta( $order_id, '_customer_user', $user_id );
+							if(get_post_meta($order_id, 'order_notes', true)) :
 
-							echo "<p>This order was requested by <b>".get_post_meta($order_id, 'patient_name', true)."</b></p>";
+								echo '<h3>Note from recipient</h3>' . get_post_meta($order_id, 'order_notes', true);
+
+							endif;
 
 							if($order->post_status === 'wc-completed') {
 								echo '<p class="impactNotice">This order has already been completed. Please contact us if you have any questions.</p>';
