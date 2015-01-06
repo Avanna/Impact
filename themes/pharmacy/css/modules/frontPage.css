@@ -2,19 +2,20 @@
     padding:14px 48px;
     /*background-color: #FFC009;*/
     color:#555;
-    background: -webkit-gradient( linear, left top, left bottom, from(#f9f9f9), to(#ddd));
+    background: #fff;
 
-    border-top: 1px solid #555;
-    border-bottom: 1px solid #aaa;
+    /*border-top: 1px solid #555;*/
+    border-bottom: 1px solid #ddd;
     -moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
     -webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+    overflow: hidden;
 }
 
 #frontPageRefNum h3 {
     color:#444;
     line-height: 0;
-   /* padding:14px 24px;
-    border: 3px #bbb solid;*/
+    padding:36px 24px;
+    border: 3px #ccc solid;
 }
 
 #frontPageRefNum h3 a {
@@ -22,9 +23,29 @@
     color:#5d900f;
 }
 
+.frontCategory {
+    float:left;
+    width:48%;
+    text-align: center;
+}
+
+.frontCategory.first {
+    padding-right:2%;
+}
+
+.frontCategory.last {
+    padding-left:2%;
+}
+
+.patientServices {
+    overflow: hidden;
+}
+
 .patientService {
-    padding:12px 48px 30px 48px;
+    width:50%;
+    /*padding:12px 48px 30px 48px;*/
     border-bottom:1px #ddd solid;
+    float:left;
 }
 
 .patientService.prescriptions {

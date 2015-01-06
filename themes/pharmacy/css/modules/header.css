@@ -1,15 +1,18 @@
 .site-header .site-title {
-    width:300px;
+    float: left;
+    width:264px;
     height:72px;
     text-indent: -9999px;
     background: url(../../img/logo_shadow.png) no-repeat -10px 0px;
-    margin-bottom:0;
+    margin-bottom:18px;
+    margin-left: 48px;
 }
 
 .site-header h2.site-description {
-    color:#fff;
-    margin-top: 0;
-    margin-bottom: 18px;
+    float:left;
+    color:#555;
+    margin-top: 48px;
+    margin-bottom: 0;
 }
 
 #page {
@@ -26,8 +29,7 @@
 }
 
 .site-header {
-    padding: 24px 48px 48px;
-    background:#88AF4F url(../../img/slider_bg.png) no-repeat 650px -31px;
+
 }
 
 .site-header h1,

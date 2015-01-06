@@ -1,14 +1,12 @@
 #sliderWrapper {
-    /*border-top: 3px #969f2a solid;*/
+    height:450px;
+    background:#78A001 url(../../img/slide_test2.jpg) no-repeat right;
 }
 
 #slider {
-    /*height:250px;*/
-    padding:48px;
-    border: 1px #91c347 solid;
+    padding:48px 72px;
     border-top: none;
     margin:0 auto;
-   /* margin-bottom:30px;*/
 }
 
 #sliderLeft {
@@ -27,4 +25,11 @@
 #slider p {
     font-size:16px;
     color:#fff;
+}
+
+#sliderCircle {
+    width:100px;
+    height:100px;
+    background: #fff;
+    border-radius:300px;
 }

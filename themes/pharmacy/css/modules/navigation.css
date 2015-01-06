@@ -3,7 +3,7 @@
     text-align: center;
     /*padding:3px 36px;*/
     background: #6da11d;
-    height:54px;
+    height:62px;
     /*border-top:3px #bfd506 solid;*/
 
     /*  float:right;*/
@@ -42,42 +42,33 @@
     /*Element should have a background-color*/
     /*All filters must be placed together*/
     /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8ab407', endColorstr = '#608a02');
-    /*INNER ELEMENTS MUST NOT BREAK THIS ELEMENTS BOUNDARIES*/
-    /*Element must have a height (not auto)*/
-    /*All filters must be placed together*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr = '#8ab407', endColorstr = '#608a02')";
-    /*Element must have a height (not auto)*/
-    /*All filters must be placed together*/
-    background-image: -moz-linear-gradient(top, #8ab407, #608a02);
-    background-image: -ms-linear-gradient(top, #8ab407, #608a02);
-    background-image: -o-linear-gradient(top, #8ab407, #608a02);
-    background-image: -webkit-gradient(linear, center top, center bottom, from(#8ab407), to(#608a02));
-    background-image: -webkit-linear-gradient(top, #8ab407, #608a02);
-    background-image: linear-gradient(top, #8ab407, #608a02);
-    /*--IE9 DOES NOT SUPPORT CSS3 GRADIENT BACKGROUNDS--*/
-
 }
+
 .main-navigation li {
     float:left;
     /*margin-right:48px;*/
-    padding:0 24px;
     font-size: 12px;
     font-size: 0.857142857rem;
-    line-height: 54px;
+    line-height: 62px;
 }
 
 .main-navigation li.current-menu-item {
-    background: #5d900f;
+  /*  background: #5d900f;*/
 }
 
 .main-navigation a {
     font-weight: bold;
+    padding:0 24px;
     display: inline-block;
     color: #fff;
     line-height: 1;
     text-decoration: none;
     text-transform: capitalize;
+    border-right: 1px #9ebc4b solid;
+}
+
+.main-navigation li:nth-of-type(1) a{
+    padding-left:0;
 }
 
 .main-navigation a:hover {
@@ -86,7 +77,7 @@
 
 .main-navigation ul.nav-menu,
 .main-navigation div.nav-menu > ul {
-    /*display: none;*/
+    padding:0 48px;
     line-height: 48px;
 }
 .main-navigation ul.nav-menu.toggled-on,

@@ -9,7 +9,8 @@ get_header(); ?>
 <div id="mainPageContent">
 	
 	<div id="frontPageRefNum">
-		<h3>do you have an order reference number? <a href="<?php echo site_url(); ?>/claim-an-order">Pay for it now</a></h3>
+		<div class="frontCategory first"><h3>Shop Hampers</h3></div>
+		<div class="frontCategory last"><h3>Shop Over The Counter Medications</h3></div>
 	</div> 
 
 	<div id="patientServices">

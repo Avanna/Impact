@@ -34,6 +34,7 @@
         <hgroup>
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
             <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+             <div class="clear"></div>
         </hgroup>
 
         <nav id="site-navigation" class="main-navigation clearfix" role="navigation">
@@ -48,13 +49,13 @@
          <?php if(is_front_page()) : ?>
             <div id="sliderWrapper" class="fullWidth">
                 <div id="slider" class="clearfix">
-                    <img src="<?php  ?>" alt="">
+                    <!-- <div id="sliderCircle"></div>
                     <div id="sliderLeft">
                         <h2>Welcome to impact pharmacy online</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque sint non quod harum commodi quo excepturi rem assumenda? Soluta aliquid in quis perferendis obcaecati ex expedita, neque aspernatur id quidem.</p>
 
                     <a class="orange_button" href="<?php echo site_url().'/about-us' ?>">find out more</a>
-                    </div>
+                    </div> -->
                     
                     <div class="sliderColumn">
                         
