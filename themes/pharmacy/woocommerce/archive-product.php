@@ -31,6 +31,23 @@ get_header( 'shop' ); ?>
 
 		<?php do_action( 'woocommerce_archive_description' ); ?>
 
+			<ul id="shop-top-categories" class="clearfix">
+					
+				<li>
+					<a href="<?php echo home_url( '/product-category/over-the-counter'); ?>">
+						<h2>over the counter</h2>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/pills.jpg" with="100%" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo home_url( '/product-category/hampers'); ?>">
+						<h2>hampers</h2>
+						<img src="<?php echo get_template_directory_uri(); ?>/img/hamper.jpg" alt="">
+					</a>
+				</li>
+				
+			</ul><!-- shop-top-categories -->
+
 		<?php if ( have_posts() ) : ?>
 
 			<?php

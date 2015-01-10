@@ -22,9 +22,9 @@ get_header(); ?>
 				</p>
 				<a class="orange_button" href="<?php echo site_url().'/prescriptions' ?>">more on prescriptions</a>
 			</div>
-			<div id="prescriptionsRight">
+			<!-- <div id="prescriptionsRight">
 				<p>Pay Online</p>
-			</div>
+			</div> -->
 		</div>
 		<div class="patientService hospitalBills">
 			<h2>hospital bills</h2>

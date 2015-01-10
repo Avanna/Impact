@@ -2,7 +2,7 @@
     padding:14px 48px;
     /*background-color: #FFC009;*/
     color:#555;
-    background: #fff;
+    background: #f8f8f8;
 
     /*border-top: 1px solid #555;*/
     border-bottom: 1px solid #ddd;
@@ -14,7 +14,7 @@
 #frontPageRefNum h3 {
     color:#444;
     line-height: 0;
-    padding:36px 24px;
+    padding:24px 24px;
     border: 3px #ccc solid;
 }
 
@@ -27,6 +27,11 @@
     float:left;
     width:48%;
     text-align: center;
+/*    background: #fff;*/
+}
+
+.frontCategory h3{
+    background: #fff;
 }
 
 .frontCategory.first {
@@ -37,31 +42,30 @@
     padding-left:2%;
 }
 
-.patientServices {
+#patientServices {
     overflow: hidden;
 }
 
 .patientService {
-    width:50%;
-    /*padding:12px 48px 30px 48px;*/
+    height: 236px;
+    width:40%;
+    padding:24px 5%;
     border-bottom:1px #ddd solid;
     float:left;
 }
 
 .patientService.prescriptions {
-    height: 206px;
-    background:#f7f7f7 url('../../img/prescription.jpg') no-repeat right;
+    /*background:#f7f7f7 url('../../img/prescription.jpg') no-repeat right;*/
 }
 
 .patientService.hospitalBills {
-    height: 206px;
     background: #f9f9f9;
 }
 
 .patientService a {
     text-transform: capitalize;
 }
-
+/*
 #prescriptionsLeft {
     float:left;
     width:600px;
@@ -70,7 +74,7 @@
 #prescriptionsRight {
     float:right;
     width:300px;
-}
+}*/
 
 #prescriptionsRight p {
     font-size:48px;

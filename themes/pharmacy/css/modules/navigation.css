@@ -42,6 +42,8 @@
     /*Element should have a background-color*/
     /*All filters must be placed together*/
     /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+
+    position:relative;
 }
 
 .main-navigation li {
@@ -50,6 +52,7 @@
     font-size: 12px;
     font-size: 0.857142857rem;
     line-height: 62px;
+    overflow: visible;
 }
 
 .main-navigation li.current-menu-item {
@@ -83,4 +86,53 @@
 .main-navigation ul.nav-menu.toggled-on,
 .menu-toggle {
     display: inline-block;
+}
+
+.main-navigation li .sub-menu {
+    width:968px;
+    display: none;
+    padding:48px;
+    background:#f8f8f8;
+    border-bottom: 1px #ddd solid;
+    position:absolute;
+    left:0;
+    top:64px;
+    z-index: 99999;
+}
+
+.main-navigation li .sub-menu a {
+    color:#555;
+    padding:24px;
+    border:3px #ddd solid;
+    background: #fff;
+}
+
+.main-navigation li .sub-menu a:hover {
+    border:3px #78A001 solid;
+}
+
+.main-navigation li .sub-menu li {
+    text-align: center;
+}
+
+.main-navigation li .sub-menu li:first-child {
+    margin-right:24px;
+}
+
+.hamperNavLiImage {
+    width:60px;
+    height:60px;
+    background-image: url(../../img/hamper.jpg);
+    background-repeat: no-repeat;
+    background-size:60px;
+    margin-bottom: 9px;
+}
+
+.otcNavLiImage {
+    width:60px;
+    height:60px;
+    background-image: url(../../img/pills.jpg);
+    background-repeat: no-repeat;
+    background-size:60px;
+    margin-bottom: 9px;
 }

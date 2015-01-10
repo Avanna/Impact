@@ -1,0 +1,35 @@
+#shop-top-categories {
+	padding:36px;
+	margin:0 0 36px 0;
+	border-bottom: 3px #999 double;
+	background: #f8f8f8
+}
+
+#shop-top-categories li {
+	width:23.5%;
+	height:185px;
+	float:left;
+	margin:0 3% 0 0;
+	position: relative;
+	background: #fff;
+	outline:1px #ddd solid;
+	overflow: hidden;
+}
+
+#shop-top-categories li img {
+	width:100%;
+}
+
+#shop-top-categories li:nth-child(4) {
+	margin-right:0;
+}
+
+#shop-top-categories h2 {
+	font-size: 16px;
+	padding:5px 12px;
+	background:#222;
+	position: absolute;
+	bottom:16px;
+	left:0;
+	color:#fff;
+}

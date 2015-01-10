@@ -18,6 +18,19 @@
 		};
 
 		equalHeight();
+
+		var menu = $(".nav-menu li");
+
+		menu.on('click mouseover', function() {
+			$(this).find('.sub-menu').show();
+		});
+
+		menu.on('mouseleave', function() {
+			$(this).find('.sub-menu').hide();
+		});
+
+		$(".sub-menu li a:contains('hampers')").prepend("<div class='hamperNavLiImage'></div>");
+		$(".sub-menu li a:contains('OTC')").prepend("<div class='otcNavLiImage'></div>");
 	});
 })(jQuery);
 
