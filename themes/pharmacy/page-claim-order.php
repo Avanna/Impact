@@ -7,15 +7,18 @@
 <?php get_header(); ?>
 
 <div id="main-content" class="main-content">
+
 	<div id="primary" class="content-area">
+
+		<div id="claim-order-top" class="sliced-top">
+			<h2><?php the_title(); ?></h2>
+		</div><!-- #about-top -->
+	
 		<div id="content" class="site-content" role="main">
-			<?php
-				// Start the Loop.
-				while ( have_posts() ) : the_post(); 
-					// Include the page content template.
-					get_template_part( 'content', 'page' );
-				endwhile;
-			?>
+
+			<?php while(have_posts()): the_post(); ?>	
+				<?php the_content(); ?>	
+			<?php endwhile; ?>
 		
 			<?php if(is_user_logged_in()) : ?>
 				<div class="refNumberForm">

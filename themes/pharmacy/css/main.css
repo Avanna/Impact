@@ -18,6 +18,7 @@
 @import url("modules/frontPage.css");
 @import url("modules/checkout.css");
 @import url("modules/shop.css");
+@import url("modules/commonPage.css");
 
 /* ==========================================================================
    Author's custom styles
@@ -79,6 +80,7 @@
 .site-content {
    /* margin: 24px 0 0;
     margin: 1.714285714rem 0 0;*/
+    padding:36px 48px;
 }
 .widget-area {
     margin: 24px 0 0;
@@ -155,8 +157,7 @@ input#ref_number {
 
 #primary {
     float:left;
-    width:631px;
-    padding:36px 48px;
+    width:727px;
     background:#f8f8f8;
 }
 

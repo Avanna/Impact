@@ -36,6 +36,20 @@ h2 {
     font-size:18px;
 }
 
+h2.underline, h3.underline {
+    padding: 0 0 18px 0;
+    margin: 0 0 24px 0;
+    border-bottom: 1px #ddd solid;
+}
+
+span.line {
+    display: block;
+    width: 50px;
+    height: 3px;
+    margin: -28px 0 36px 0;
+    background: #ddb517;
+}
+
 .centered {
     width:960px;
     margin:0 auto;
@@ -64,4 +78,15 @@ h2 {
 
 .clear {
     clear:both;
+}
+
+*:focus {
+    outline: 0;
+    background:none;
+}
+
+/* hack to remove yellow background in chrome on auto fill */
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
 }

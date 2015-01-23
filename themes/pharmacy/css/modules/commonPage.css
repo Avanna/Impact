@@ -1,0 +1,54 @@
+.sliced-top {
+	height:216px;
+	padding:87px 0 0 48px;
+	background-color:#739C00;
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+#about-top {
+	background-image: url(../../img/page-top-bg.png);
+}
+
+#claim-order-top {
+	background-image: url(../../img/page-top-bg.png);
+}
+
+#bills-top {
+	background-image: url(../../img/page-top-bg.png);
+}
+
+#faq-top {
+	height:166px;
+	padding:110px 0 0 48px;
+	background-image: url(../../img/faq_bg.png) no-repeat right;
+}
+
+#page-top {
+	padding:42px 36px 24px 36px;
+	background:#749c00;
+}
+
+.sliced-top h2 {
+	font-size: 36px;
+	color:#fff;
+}
+
+#intro {
+	padding: 1% 48px 1%;
+	background: #739C00;
+	/*border-top: 8px #577405 solid;*/
+	border-bottom: 1px #577405 solid;
+}
+
+#intro h2, #intro p, #intro a {
+	color:#fff !important;
+}
+
+#intro h2 {
+	font-size: 28px;
+}
+
+#intro p {
+	font-size: 14px;
+}
