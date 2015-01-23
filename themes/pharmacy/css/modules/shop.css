@@ -42,3 +42,11 @@
 	left:0;
 	color:#fff;
 }
+
+.woocommerce.impact .woocommerce-breadcrumb, .woocommerce-page.impact .woocommerce-breadcrumb {
+	font-weight:bold;
+	color:#739C00;
+	padding-bottom:9px;
+	margin-bottom:18px;
+	border-bottom: 1px #ddd solid;
+}

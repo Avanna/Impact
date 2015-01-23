@@ -49,7 +49,11 @@
          <?php if(is_front_page()) : ?>
             <div id="sliderWrapper" class="fullWidth">
                 <div id="slider" class="clearfix">
-                    <!-- <div id="sliderCircle"></div>
+                        <div id="sliderCircle">
+                             <a href="<?php echo site_url().'/claim-an-order' ?>"></a>
+                        </div>
+
+                    <!--
                     <div id="sliderLeft">
                         <h2>Welcome to impact pharmacy online</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque sint non quod harum commodi quo excepturi rem assumenda? Soluta aliquid in quis perferendis obcaecati ex expedita, neque aspernatur id quidem.</p>

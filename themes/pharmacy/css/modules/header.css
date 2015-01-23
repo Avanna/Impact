@@ -9,10 +9,11 @@
 }
 
 .site-header h2.site-description {
-    float:left;
-    color:#555;
-    margin-top: 48px;
+    float: left;
+    color: #555;
+    margin-top: 51px;
     margin-bottom: 0;
+    margin-left: -9px;
 }
 
 #page {

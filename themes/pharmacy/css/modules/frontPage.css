@@ -18,6 +18,10 @@
     border: 3px #ccc solid;
 }
 
+#frontPageRefNum h3:hover {
+    border-color:#78A001;
+}
+
 #frontPageRefNum h3 a {
     font-style: italic;
     color:#5d900f;

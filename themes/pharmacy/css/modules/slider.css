@@ -28,8 +28,16 @@
 }
 
 #sliderCircle {
-    width:100px;
-    height:100px;
-    background: #fff;
-    border-radius:300px;
+    width: 206px;
+    height: 211px;
+    background: transparent;
+    border-radius: 300px;
+    margin-top: 130px;
+    margin-left: 164px;
+}
+
+#sliderCircle a {
+    width: 206px;
+    height: 211px;
+    display:inline-block;
 }

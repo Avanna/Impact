@@ -30,7 +30,7 @@
 		});
 
 		$(".sub-menu li a:contains('hampers')").prepend("<div class='hamperNavLiImage'></div>");
-		$(".sub-menu li a:contains('OTC')").prepend("<div class='otcNavLiImage'></div>");
+		$(".sub-menu li a:contains('Over The Counter')").prepend("<div class='otcNavLiImage'></div>");
 	});
 })(jQuery);
 

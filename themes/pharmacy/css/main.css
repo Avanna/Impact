@@ -181,7 +181,7 @@ input#ref_number {
 }
 
 .main-footer {
-    padding:48px;
+    padding: 24px 48px;
     background:#f8f8f8;
     border-top: 1px #ddd solid;
     border-bottom: 1px #ddd solid;
