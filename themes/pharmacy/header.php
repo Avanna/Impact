@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/main.css">
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/flexslider/flexslider.css">
 
-    
+
     <script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr-2.6.2.min.js"></script>
 
     <!-- typekit fonts -->
@@ -50,25 +50,73 @@
         <?php endif; ?>
 
          <?php if(is_front_page()) : ?>
-            <div id="sliderWrapper" class="fullWidth">
-                <div id="slider" class="clearfix">
-                        <div id="sliderCircle">
-                             <a href="<?php echo site_url().'/claim-an-order' ?>"></a>
+
+            <div class="flexslider">
+                  <ul class="slides">
+                    <li>
+                        <div id="sliderWrapper" class="fullWidth">
+                            <div id="slider" class="clearfix">
+                                <div id="sliderCircle">
+                                     <a href="<?php echo site_url().'/claim-an-order' ?>"></a>
+                                </div>
+                                
+                                <div class="sliderColumn">
+                                    
+                                </div>
+                            </div>
                         </div>
+                    </li>
 
-                    <!--
-                    <div id="sliderLeft">
-                        <h2>Welcome to impact pharmacy online</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque sint non quod harum commodi quo excepturi rem assumenda? Soluta aliquid in quis perferendis obcaecati ex expedita, neque aspernatur id quidem.</p>
+                    <li>
+                      <img src="<?php bloginfo('template_url') ?>/img/slides/new_slide1.jpg" />
+                      <div class="flex-caption first">
+                        <h2>Impact Pharmacy is a pharmacy innovation organization supporting the advance of pharmacy practice in
+            Zimbabwe.</h2>
+                        <p>
+                            Impact pharmacy is here to help you advance your career by making job search easier by consolidating
+            the search, giving support for research work, helping you to organize and track your CE’s, celebrating
+            and recognizing leaders and innovators in the profession , keeping you abreast research and the latest
+            drug news the world over and much more.
+                        </p>
+                        <button class="slider-button">
+                            <a href="<?php echo home_url('/about-us/'); ?>">find out more</a>
+                        </button>
+                    </div>          
+                    </li>
 
-                    <a class="orange_button" href="<?php echo site_url().'/about-us' ?>">find out more</a>
-                    </div> -->
-                    
-                    <div class="sliderColumn">
-                        
-                    </div>
+
+                    <?php 
+                        $args = array(
+                            'category_name' => 'slides',
+                            'limit'         => 3
+
+                            );
+
+                            $q = new WP_Query($args);
+                            while($q->have_posts()) : $q->the_post(); 
+                    ?>
+                    <li>
+                      <img src="<?php bloginfo('template_url') ?>/img/slides/slide2_bg.jpg" />
+                        <div class="featured-pharmacist flex-caption">
+                            <?php the_post_thumbnail('full'); ?>
+
+                            <?php $slide_title = get_post_meta($post->ID, 'front_slide_title', true); ?>
+                            <h2><?php echo esc_attr($slide_title); ?></h2>
+
+                             <h3><a href="<?php the_permalink();?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+
+                            <?php the_excerpt(); ?>
+
+                            <button class="slider-button">
+                                <a href="<?php the_permalink();?>">find out more</a>
+                            </button>
+
+                        </div><!-- featured-pharmacist -->
+                    </li>
+
+                 <?php endwhile; wp_reset_query(); ?>
+                  </ul>
                 </div>
-            </div>
         <?php endif; ?>
     </header><!-- #masthead -->
 

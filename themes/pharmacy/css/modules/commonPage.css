@@ -15,7 +15,11 @@
 }
 
 #bills-top {
-	background-image: url(../../img/page-top-bg.png);
+	background-image: url(../../img/doctor.png);
+}
+
+#prescriptions-top {
+	background-image: url(../../img/presc-top-bg.png);
 }
 
 #faq-top {
@@ -51,4 +55,10 @@
 
 #intro p {
 	font-size: 14px;
+}
+
+.claimOrderLink {
+	margin-bottom: 36px;
+	padding-bottom: 36px;
+	border-bottom: 1px #ddd solid;
 }

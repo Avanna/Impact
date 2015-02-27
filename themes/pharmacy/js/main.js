@@ -29,8 +29,21 @@
 			$(this).find('.sub-menu').hide();
 		});
 
-		$(".sub-menu li a:contains('hampers')").prepend("<div class='hamperNavLiImage'></div>");
-		$(".sub-menu li a:contains('Over The Counter')").prepend("<div class='otcNavLiImage'></div>");
+		var hampersDesc = "<p>Send friends and family in Zimbabwe some love from any part of the world with a beautifully handcrafted hamper today. Our selection is available in various sizes to cover every option, from the larger premium class products to the smaller products, just to say you really care.</p>";
+		var otcDesc = "<p>We are your convenient and cost-effective one stop shop for Over The Counter medications (OTC). Unlike prescription medications, these products that do not require a physician issued prescription before a sale can be made.</p>";
+
+		$(".sub-menu li a:contains('hampers')").prepend("<div class='hamperNavLiImage subListImage'></div>");
+		$(".sub-menu li a:contains('hampers')").append(hampersDesc);
+
+		$(".sub-menu li a:contains('Over The Counter')").prepend("<div class='otcNavLiImage subListImage'></div>");
+		$(".sub-menu li a:contains('Over The Counter')").append(otcDesc);
+
+		$('.flexslider').flexslider({
+	        animation: "fade",
+	        nextText: "",
+	        slideshowSpeed: 15000
+	    });
+
 	});
 })(jQuery);
 
