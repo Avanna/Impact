@@ -41,9 +41,7 @@ get_header(); ?>
 	<div id="mainPageShop">
 		<h2 class="underline">shop over the counter medications</h2>
 		<span class="line"></span>
-
-		<?php echo do_shortcode('[featured_products per_page="3" columns="3"]'); ?>
-		<?php echo do_shortcode('[recent_products per_page="3" columns="3"]'); ?>
+		<?php echo do_shortcode('[recent_products per_page="6" columns="3"]'); ?>
 	</div><!-- mainPageShop -->
 	
 </div><!-- mainPageContent -->

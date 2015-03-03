@@ -50,6 +50,11 @@ span.line {
     background: #ddb517;
 }
 
+.borderedLink {
+    padding:18px 36px;
+    border:3px #ddd solid;
+}
+
 .centered {
     width:960px;
     margin:0 auto;

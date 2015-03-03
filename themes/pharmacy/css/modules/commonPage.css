@@ -10,6 +10,44 @@
 	background-image: url(../../img/page-top-bg.png);
 }
 
+#aboutLinksWrapper {
+	margin:36px 0;
+}
+
+#aboutLinksWrapper a {
+	font-family: 'Oswald', helvetica, Arial, sans-serif;
+	font-size:18px;
+	display: inline-block;
+	width: 235px;
+	text-align: center;
+}
+
+#aboutLinksWrapper a:hover {
+	border-color:#739C00;
+}
+
+#team {
+	margin-top:30px;
+}
+
+.teamMember {
+	border:1px #ddd solid;
+	margin:0 0 36px;
+	overflow:hidden;
+	background:#eee;
+}
+
+.teamMemberPic {
+	float:left;
+	width:244px;
+}
+
+.teamMemberInfo {
+	width:313px;
+	padding:36px;
+	float:right;
+}
+
 #claim-order-top {
 	background-image: url(../../img/page-top-bg.png);
 }
@@ -61,4 +99,46 @@
 	margin-bottom: 36px;
 	padding-bottom: 36px;
 	border-bottom: 1px #ddd solid;
+}
+
+#contactForm {
+	margin-top:-6px;
+}
+
+#contactForm .wpcf7 {
+	padding:48px 120px;
+}
+
+#contactForm .wpcf7 input[type=text], #contactForm .wpcf7 input[type=email], #contactForm .wpcf7 textarea {
+	width:100%;
+	padding:9px 0;
+	border:1px #ddd solid;
+	border-radius: 3px;
+}
+
+#contactForm .wpcf7 input[type=submit] {
+	font-size:16px;
+	padding: 9px 18px;
+	margin: 5px 0 0;
+	font-family: Arial, Helvetica, sans-serif;
+	text-transform: capitalize;
+	font-weight: bold;
+	color: #555;
+	background: -moz-linear-gradient( top, #ffdd00 0%, #ffc800);
+	background: -webkit-gradient( linear, left top, left bottom, from(#ffdd00), to(#ffc800));
+	border-radius: 5px;
+	border: 1px solid #ff8c00;
+	-moz-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+	-webkit-box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+	box-shadow: 0px 1px 3px rgba(000,000,000,0), inset 0px 0px 5px rgba(161,142,016,0);
+	text-shadow: 0px -1px 3px rgba(255,255,255,0), 0px 1px 0px rgba(255,255,255,0);
+}
+
+#contactForm h3, #contactMap h3 {
+	padding:18px 0;
+	margin:0;
+	background:#fff;
+	border-top: 1px #ddd solid;
+	border-bottom: 1px #ddd solid;
+	text-align: center;
 }

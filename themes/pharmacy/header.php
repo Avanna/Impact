@@ -67,56 +67,69 @@
                         </div>
                     </li>
 
-                    <li>
-                      <img src="<?php bloginfo('template_url') ?>/img/slides/new_slide1.jpg" />
-                      <div class="flex-caption first">
-                        <h2>Impact Pharmacy is a pharmacy innovation organization supporting the advance of pharmacy practice in
-            Zimbabwe.</h2>
-                        <p>
-                            Impact pharmacy is here to help you advance your career by making job search easier by consolidating
-            the search, giving support for research work, helping you to organize and track your CE’s, celebrating
-            and recognizing leaders and innovators in the profession , keeping you abreast research and the latest
-            drug news the world over and much more.
-                        </p>
-                        <button class="slider-button">
-                            <a href="<?php echo home_url('/about-us/'); ?>">find out more</a>
-                        </button>
-                    </div>          
-                    </li>
-
 
                     <?php 
                         $args = array(
                             'category_name' => 'slides',
-                            'limit'         => 3
+                            'limit' => 1
+                        );
 
-                            );
+                        $q = new WP_Query($args);
 
-                            $q = new WP_Query($args);
-                            while($q->have_posts()) : $q->the_post(); 
+                        while($q->have_posts()) : $q->the_post(); 
                     ?>
+
                     <li>
-                      <img src="<?php bloginfo('template_url') ?>/img/slides/slide2_bg.jpg" />
-                        <div class="featured-pharmacist flex-caption">
-                            <?php the_post_thumbnail('full'); ?>
-
-                            <?php $slide_title = get_post_meta($post->ID, 'front_slide_title', true); ?>
-                            <h2><?php echo esc_attr($slide_title); ?></h2>
-
-                             <h3><a href="<?php the_permalink();?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-
-                            <?php the_excerpt(); ?>
+                        <img src="<?php bloginfo('template_url') ?>/img/slides/new_slide1.jpg" />
+                        <div class="flex-caption first">
+                            <h2><?php the_title(); ?></h2>
+                            <p><?php the_content(); ?></p>
 
                             <button class="slider-button">
-                                <a href="<?php the_permalink();?>">find out more</a>
+                                <a href="<?php echo home_url('/about-us/'); ?>">find out more</a>
                             </button>
+                        </div>          
+                    </li>
+                    <?php endwhile; wp_reset_query(); ?>
 
-                        </div><!-- featured-pharmacist -->
+                    <?php 
+                        $args = array(
+                            'post_type' => 'product', 
+                            'posts_per_page' => 1, 
+                            'product_cat' => 'promotion',
+                            'limit' => 1
+                        );
+
+                        $q = new WP_Query($args);
+
+                        while($q->have_posts()) : $q->the_post(); 
+                    ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="featured-product flex-caption">
+                                
+                                <h2 class="borderedHeadline">Featured Product</h2>
+
+                                <?php if(has_post_thumbnail()) { ?>
+                                    <?php the_post_thumbnail('thumbnail', array('id' => 'sliderFeaturedProductPic')); ?>
+                                <?php } ?>
+
+                                <div id="featuredSliderProductContent">
+                                    <h3><?php echo $post->post_title; ?></h3>
+                                    <p><?php echo $post->post_content; ?></p>
+
+                                    <button class="orange_button">
+                                        <a href="<?php the_permalink();?>">Buy it</a>
+                                    </button>
+                                </div>
+
+                            </div><!-- featured-product -->
+                        </a>
                     </li>
 
-                 <?php endwhile; wp_reset_query(); ?>
-                  </ul>
-                </div>
+                    <?php endwhile; wp_reset_query(); ?>
+                </ul>
+            </div>
         <?php endif; ?>
     </header><!-- #masthead -->
 

@@ -1,6 +1,6 @@
 #sliderWrapper {
     height:450px;
-    background:#78A001 url(../../img/slide_test3.jpg) no-repeat right;
+    background:#78A001 url(../../img/slides/introSlide.jpg) no-repeat right;
 }
 
 #slider {
@@ -47,7 +47,9 @@
 }
 
 .flexslider .slides li {
+    height:472px;
     position: relative;
+    overflow:hidden;
 }
 
 .flex-caption {
@@ -62,6 +64,7 @@
 
 .flex-caption h2 {
     font-size:26px;
+    line-height:1.4;
     margin: 0 0 30px 0;
     font-weight: bold;
 }
@@ -170,6 +173,37 @@ filter: progid:DXImageTransform.Microsoft.Shadow(strength = 1, direction = 135, 
     font-weight: bold;
     text-transform: uppercase;
     color:#333;
+}
+
+.flexslider .featured-product {
+    width:944px;
+    height:376px;
+    padding:48px 60px;
+    margin:0 auto;
+    overflow:hidden;
+    background-color: #78A001;
+}
+
+.flexslider #sliderFeaturedProductPic {
+    width:150px;
+    float:left;
+    padding:30px;
+    margin-right:36px;
+    background-color: #fff;
+    border: 1px #ddd solid;
+}
+
+.flexslider #featuredSliderProductContent {
+    float:left;
+    width:690px;
+}
+
+.flexslider #featuredSliderProductContent p, .flexslider #featuredSliderProductContent h2, .flexslider #featuredSliderProductContent h3 {
+    color:#fff;
+}
+
+.flexslider #featuredSliderProductContent a {
+    color:#555;
 }
 
 .flexslider .flex-direction-nav {

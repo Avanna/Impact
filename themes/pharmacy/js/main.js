@@ -8,16 +8,18 @@
 		var equalHeight = function() {
 			var primary = $('#primary');
 			var secondary = $('#secondary');
-			var primaryHeight = primary.height();
-			var secondaryHeight = secondary.height();
+			var primaryHeight = primary.outerHeight();
+			var secondaryHeight = secondary.outerHeight();
 
 			var maxHeight = Math.max(primaryHeight, secondaryHeight);
 
-			primary.height(maxHeight);
-			secondary.height(maxHeight);
+			primary.outerHeight(maxHeight);
+			secondary.outerHeight(maxHeight);
 		};
 
-		equalHeight();
+		setTimeout(function(){
+			equalHeight();
+		}, 500);
 
 		var menu = $(".nav-menu li");
 
@@ -41,7 +43,8 @@
 		$('.flexslider').flexslider({
 	        animation: "fade",
 	        nextText: "",
-	        slideshowSpeed: 15000
+	        slideshowSpeed: 15000,
+	        controlNav : true
 	    });
 
 	});
